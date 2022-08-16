@@ -5,16 +5,12 @@
 //  Created by Enzo Gammino on 16/08/2022.
 //
 
-import SwiftUI
+import UIKit
 
-struct UiViewController_Alert: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-    }
-}
-
-struct UiViewController_Alert_Previews: PreviewProvider {
-    static var previews: some View {
-        UiViewController_Alert()
+extension UIViewController {
+    private func presentAlert(message: String){
+        let alertVC = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
+        alertVC.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+        present(alertVC, animated: true, completion: nil)
     }
 }

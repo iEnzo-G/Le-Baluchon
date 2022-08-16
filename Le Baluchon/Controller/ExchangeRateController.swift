@@ -9,10 +9,23 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    // MARK: - Properties
+    
+    let service = URLSessionHTTPClient()
+    
+    // MARK: - View life cycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
+        service.get(url: ExchangeRate.url) { result in
+            switch result {
+            case let .success(currency):
+                print(currency)
+            case let .failure(error):
+                print(error)
+            }
+        }
     }
-
 
 }

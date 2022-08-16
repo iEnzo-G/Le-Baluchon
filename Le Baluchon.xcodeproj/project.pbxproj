@@ -9,21 +9,31 @@
 /* Begin PBXBuildFile section */
 		547ECCEF28AA6F5600B86407 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 547ECCEE28AA6F5600B86407 /* AppDelegate.swift */; };
 		547ECCF128AA6F5600B86407 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 547ECCF028AA6F5600B86407 /* SceneDelegate.swift */; };
-		547ECCF328AA6F5600B86407 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 547ECCF228AA6F5600B86407 /* ViewController.swift */; };
 		547ECCF628AA6F5600B86407 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 547ECCF428AA6F5600B86407 /* Main.storyboard */; };
 		547ECCF828AA6F5800B86407 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 547ECCF728AA6F5800B86407 /* Assets.xcassets */; };
 		547ECCFB28AA6F5800B86407 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 547ECCF928AA6F5800B86407 /* LaunchScreen.storyboard */; };
+		547ECD0328AA71A100B86407 /* ExchangeRateController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 547ECD0228AA71A100B86407 /* ExchangeRateController.swift */; };
+		547ECD0528AA71CC00B86407 /* ExchangeRate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 547ECD0428AA71CC00B86407 /* ExchangeRate.swift */; };
+		547ECD0B28AA7CCF00B86407 /* URLSessionHTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 547ECD0A28AA7CCF00B86407 /* URLSessionHTTPClient.swift */; };
+		547ECD0D28AA836600B86407 /* ExchangeRate.json in Resources */ = {isa = PBXBuildFile; fileRef = 547ECD0C28AA836600B86407 /* ExchangeRate.json */; };
+		54F40A5728ABC8720000CC3A /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54F40A5628ABC8720000CC3A /* NetworkError.swift */; };
+		54F40A5928ABCE510000CC3A /* UiViewController+Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54F40A5828ABCE510000CC3A /* UiViewController+Alert.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		547ECCEB28AA6F5600B86407 /* Le Baluchon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Le Baluchon.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		547ECCEE28AA6F5600B86407 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		547ECCF028AA6F5600B86407 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		547ECCF228AA6F5600B86407 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		547ECCF528AA6F5600B86407 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		547ECCF728AA6F5800B86407 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		547ECCFA28AA6F5800B86407 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		547ECCFC28AA6F5800B86407 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		547ECD0228AA71A100B86407 /* ExchangeRateController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeRateController.swift; sourceTree = "<group>"; };
+		547ECD0428AA71CC00B86407 /* ExchangeRate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeRate.swift; sourceTree = "<group>"; };
+		547ECD0A28AA7CCF00B86407 /* URLSessionHTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionHTTPClient.swift; sourceTree = "<group>"; };
+		547ECD0C28AA836600B86407 /* ExchangeRate.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = ExchangeRate.json; sourceTree = "<group>"; };
+		54F40A5628ABC8720000CC3A /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
+		54F40A5828ABCE510000CC3A /* UiViewController+Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UiViewController+Alert.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,15 +66,52 @@
 		547ECCED28AA6F5600B86407 /* Le Baluchon */ = {
 			isa = PBXGroup;
 			children = (
-				547ECCEE28AA6F5600B86407 /* AppDelegate.swift */,
-				547ECCF028AA6F5600B86407 /* SceneDelegate.swift */,
-				547ECCF228AA6F5600B86407 /* ViewController.swift */,
-				547ECCF428AA6F5600B86407 /* Main.storyboard */,
-				547ECCF728AA6F5800B86407 /* Assets.xcassets */,
-				547ECCF928AA6F5800B86407 /* LaunchScreen.storyboard */,
 				547ECCFC28AA6F5800B86407 /* Info.plist */,
+				547ECD0928AA726700B86407 /* Supporting Files */,
+				547ECD0728AA71DA00B86407 /* Controller */,
+				547ECD0628AA71D100B86407 /* Model */,
+				547ECD0828AA71F200B86407 /* View */,
 			);
 			path = "Le Baluchon";
+			sourceTree = "<group>";
+		};
+		547ECD0628AA71D100B86407 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				547ECD0428AA71CC00B86407 /* ExchangeRate.swift */,
+				547ECD0A28AA7CCF00B86407 /* URLSessionHTTPClient.swift */,
+				54F40A5628ABC8720000CC3A /* NetworkError.swift */,
+				547ECD0C28AA836600B86407 /* ExchangeRate.json */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		547ECD0728AA71DA00B86407 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				54F40A5828ABCE510000CC3A /* UiViewController+Alert.swift */,
+				547ECD0228AA71A100B86407 /* ExchangeRateController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		547ECD0828AA71F200B86407 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				547ECCF928AA6F5800B86407 /* LaunchScreen.storyboard */,
+				547ECCF428AA6F5600B86407 /* Main.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		547ECD0928AA726700B86407 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				547ECCF728AA6F5800B86407 /* Assets.xcassets */,
+				547ECCEE28AA6F5600B86407 /* AppDelegate.swift */,
+				547ECCF028AA6F5600B86407 /* SceneDelegate.swift */,
+			);
+			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -125,6 +172,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				547ECD0D28AA836600B86407 /* ExchangeRate.json in Resources */,
 				547ECCFB28AA6F5800B86407 /* LaunchScreen.storyboard in Resources */,
 				547ECCF828AA6F5800B86407 /* Assets.xcassets in Resources */,
 				547ECCF628AA6F5600B86407 /* Main.storyboard in Resources */,
@@ -138,8 +186,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				547ECCF328AA6F5600B86407 /* ViewController.swift in Sources */,
+				547ECD0528AA71CC00B86407 /* ExchangeRate.swift in Sources */,
+				547ECD0B28AA7CCF00B86407 /* URLSessionHTTPClient.swift in Sources */,
 				547ECCEF28AA6F5600B86407 /* AppDelegate.swift in Sources */,
+				54F40A5728ABC8720000CC3A /* NetworkError.swift in Sources */,
+				54F40A5928ABCE510000CC3A /* UiViewController+Alert.swift in Sources */,
+				547ECD0328AA71A100B86407 /* ExchangeRateController.swift in Sources */,
 				547ECCF128AA6F5600B86407 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
