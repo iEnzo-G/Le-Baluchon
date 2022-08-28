@@ -78,8 +78,8 @@
 		547ECD0628AA71D100B86407 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				547ECD0428AA71CC00B86407 /* ExchangeRate.swift */,
 				547ECD0A28AA7CCF00B86407 /* URLSessionHTTPClient.swift */,
+				547ECD0428AA71CC00B86407 /* ExchangeRate.swift */,
 				54F40A5628ABC8720000CC3A /* NetworkError.swift */,
 				547ECD0C28AA836600B86407 /* ExchangeRate.json */,
 			);

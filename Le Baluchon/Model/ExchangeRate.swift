@@ -7,56 +7,53 @@
 
 import Foundation
 
-struct Currency: Decodable {
-    var result: String
-    var rate: String
-}
-
-class ExchangeRate {
-    
-    // MARK: - Properties
-    
-    private let session: URLSession
-    static let amount: String = "1"
-    
-    init(session: URLSession = URLSession.init(configuration: .default)) {
-        self.session = session
-    }
-    
-    // MARK: - Request function
-    
-    func getCurrency(url: URL, completion: @escaping (Result<(Data, URLResponse), Error>) -> Void) {
-        
-        var request = URLRequest(url: url)
-        request.httpMethod = "GET"
-        request.addValue("Vxvy8dMQlAuKjbvNvkInyxUM6zpzz9JG", forHTTPHeaderField: "apikey")
-        
-        let task = session.dataTask(with: request) { data, response, error in
-            guard let data = data, error == nil else {
-                completion(.failure(NetworkError.noData))
-                return
-            }
-            guard let response = response as? HTTPURLResponse else {
-                completion(.failure(NetworkError.invalidResponse))
-                return
-            }
-            completion(.success((data, response)))
-        }
-        
-        task.resume()
-    }
+struct CurrencyResponse: Decodable {
+    let succes: Bool
+    let timestamp: Int
+    let base, date: String
+    let rates: [String: Double]
 }
 
     // MARK: - Mapper
 
 // The mapper will be use to decode the answer of API
-class ExchangeMapper {
+final class ExchangeMapper {
     private init() {}
     
-    static func map(data: Data, response: HTTPURLResponse) throws -> Currency {
-        guard response.statusCode == 200, let currency = try? JSONDecoder().decode(Currency.self, from: data) else {
+    static func map(data: Data, response: HTTPURLResponse) throws -> CurrencyResponse {
+        guard response.statusCode == 200, let currency = try? JSONDecoder().decode(CurrencyResponse.self, from: data) else {
             throw NetworkError.undecodableData
         }
         return currency
+    }
+}
+
+    // MARK: - Loader
+
+final class ExchangeRateLoader {
+    
+    let client: URLSessionHTTPClient
+    
+    init(client: URLSessionHTTPClient = .init()) {
+        self.client = client
+    }
+    
+    func load(url: URL, completion: @escaping (Result<CurrencyResponse, Error>) -> Void) {
+        client.get(url: url) { result in
+            switch result {
+            case let .success((data, response)):
+                do {
+                    let result = try ExchangeMapper.map(data: data, response: response)
+                    completion(.success(result))
+                    return
+                }  catch {
+                    completion(.failure(error))
+                    return
+                }
+            case let .failure(error):
+                print(error.localizedDescription)
+                return
+            }
+        }
     }
 }

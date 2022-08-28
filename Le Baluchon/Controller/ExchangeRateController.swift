@@ -11,48 +11,29 @@ class ExchangeRateController: UIViewController {
     
     // MARK: - Outlets
     
-    @IBOutlet weak var getCurrencyButton: UIButton!
+    
 
     // MARK: - Properties
     
-    let service = ExchangeRate()
-    let url = URL(string: "https://api.apilayer.com/fixer/convert?to=USD&from=EUR&amount=" + ExchangeRate.amount)!
+    let service = ExchangeRateLoader()
+    let url = URL(string: "https://api.apilayer.com/fixer/latest?symbols=USD&base=EUR&apikey=Vxvy8dMQlAuKjbvNvkInyxUM6zpzz9JG")!
     
     // MARK: - View life cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        service.getCurrency(url: url) { result in
+        service.load(url: url) { result in
             switch result {
-            case let .success(currency):
-                print(currency)
+            case let .success(data):
+                print(data )
             case let .failure(error):
-                print(error)
+                print(error.localizedDescription)
             }
         }
-        
-//        service.get(url: ExchangeRate.url) { result in
-//            switch result {
-//            case let .success(currency):
-//                print(currency)
-//            case let .failure(error):
-//                print(error)
-//            }
-//        }
-    }
-    
-    @IBAction func tappedGetCurrencyButton(_ sender: UIButton) {
-        service.getCurrency(url: url) { result in
-            switch result {
-            case let .success(currency):
-                print(currency)
-            case let .failure(error):
-                print(error)
-            }
-        }
-    }
-   
 
+    }
 
 }
+
+    // MARK: - Actions

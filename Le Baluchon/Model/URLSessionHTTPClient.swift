@@ -14,7 +14,7 @@ class URLSessionHTTPClient {
         self.session = session
     }
     
-    func get(url: URL, completion: @escaping (Result<(Data, URLResponse), Error>) -> Void) {
+    func get(url: URL, completion: @escaping (Result<(Data, HTTPURLResponse), Error>) -> Void) {
         session.dataTask(with: url) { data, response, error in
             guard let data = data, error == nil else {
                 completion(.failure(NetworkError.noData))
@@ -25,6 +25,6 @@ class URLSessionHTTPClient {
                 return
             }
             completion(.success((data, response)))
-        }
+        }.resume()
     }
 }

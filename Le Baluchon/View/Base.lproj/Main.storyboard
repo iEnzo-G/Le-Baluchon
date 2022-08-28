@@ -32,29 +32,16 @@
         <!--Devise-->
         <scene sceneID="69m-wv-gP3">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="NVn-HI-Jff" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <viewController id="Cg0-r8-CUL" sceneMemberID="viewController">
+                <viewController id="Cg0-r8-CUL" customClass="ExchangeRateController" customModule="Le_Baluchon" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="XfU-eu-3Ct">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WtB-aE-Kcv">
-                                <rect key="frame" x="141.5" y="432.5" width="131" height="31"/>
-                                <color key="tintColor" red="0.81387656929999996" green="0.40106797220000001" blue="0.34899812940000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="GET CURRENCY" cornerStyle="small"/>
-                            </button>
-                        </subviews>
                         <viewLayoutGuide key="safeArea" id="rUd-cI-XnT"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="WtB-aE-Kcv" firstAttribute="centerX" secondItem="XfU-eu-3Ct" secondAttribute="centerX" id="Fus-mF-eU1"/>
-                            <constraint firstItem="WtB-aE-Kcv" firstAttribute="centerY" secondItem="XfU-eu-3Ct" secondAttribute="centerY" id="iR4-bV-ZsM"/>
-                            <constraint firstItem="rUd-cI-XnT" firstAttribute="bottom" secondItem="WtB-aE-Kcv" secondAttribute="bottom" constant="349.5" id="wnO-y8-QUZ"/>
-                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Devise" image="dollarsign.circle.fill" catalog="system" id="yrl-qy-cyU"/>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NVn-HI-Jff" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-333" y="-351"/>
         </scene>
