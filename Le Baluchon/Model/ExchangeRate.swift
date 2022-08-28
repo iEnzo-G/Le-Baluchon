@@ -7,8 +7,8 @@
 
 import Foundation
 
-struct CurrencyResponse: Decodable {
-    let succes: Bool
+struct FixerResponse: Decodable {
+    let success: Bool
     let timestamp: Int
     let base, date: String
     let rates: [String: Double]
@@ -20,11 +20,11 @@ struct CurrencyResponse: Decodable {
 final class ExchangeMapper {
     private init() {}
     
-    static func map(data: Data, response: HTTPURLResponse) throws -> CurrencyResponse {
-        guard response.statusCode == 200, let currency = try? JSONDecoder().decode(CurrencyResponse.self, from: data) else {
+    static func map(data: Data, response: HTTPURLResponse) throws -> FixerResponse {
+        guard response.statusCode == 200, let response = try? JSONDecoder().decode(FixerResponse.self, from: data) else {
             throw NetworkError.undecodableData
         }
-        return currency
+        return response
     }
 }
 
@@ -38,7 +38,7 @@ final class ExchangeRateLoader {
         self.client = client
     }
     
-    func load(url: URL, completion: @escaping (Result<CurrencyResponse, Error>) -> Void) {
+    func load(url: URL, completion: @escaping (Result<FixerResponse, Error>) -> Void) {
         client.get(url: url) { result in
             switch result {
             case let .success((data, response)):

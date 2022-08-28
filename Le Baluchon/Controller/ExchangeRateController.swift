@@ -26,7 +26,7 @@ class ExchangeRateController: UIViewController {
         service.load(url: url) { result in
             switch result {
             case let .success(data):
-                print(data )
+                print(data)
             case let .failure(error):
                 print(error.localizedDescription)
             }
