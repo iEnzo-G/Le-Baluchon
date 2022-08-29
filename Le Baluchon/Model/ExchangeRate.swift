@@ -14,6 +14,24 @@ struct FixerResponse: Decodable {
     let rates: [String: Double]
 }
 
+final class ExchangeRate {
+// MARK: - Properties
+
+    let formatter = NumberFormatter()
+    var rates: String = "0"
+
+// MARK: - Functions
+
+private func numberFormatter() {
+        formatter.numberStyle = .decimal
+        formatter.maximumFractionDigits = 3
+}
+
+func getRates(response: FixerResponse) {
+    rates = String(format:"%f", response.rates["USD"]!)
+}
+    
+}
     // MARK: - Mapper
 
 // The mapper will be use to decode the answer of API
