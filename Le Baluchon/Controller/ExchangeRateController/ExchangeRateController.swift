@@ -11,7 +11,7 @@ class ExchangeRateController: UIViewController {
     
     // MARK: - Outlets
     
-    @IBOutlet weak var amountEURTextField: UITextField!
+    @IBOutlet weak var amountEURTextField: CustomUITextField!
     @IBOutlet weak var amountUSDTextField: UITextField!
     @IBOutlet weak var rateLabel: UILabel!
     @IBOutlet weak var getTheExchangeRateButton: UIButton!
@@ -33,8 +33,21 @@ class ExchangeRateController: UIViewController {
     
     // MARK: - Actions
     
+    @IBAction func tappedOutsideEURTextField(_ sender: UITextField) {
+        guard let eurAmount = amountEURTextField.text else { return }
+        exchangeRate.eurAmountText = eurAmount
+    }
+    
     @IBAction func tappedAmountEURTextField(_ sender: UITextField) {
         amountEURTextField.text = ""
+    }
+    
+    @IBAction func typpedMoreThanOneDot(_ sender: UITextField) {
+//        guard !amountEURTextField.text!.contains(".") else {
+//            amountEURTextField.text?.removeLast()
+//            return
+//        }
+//        amountEURTextField.text!.append(".")
     }
     
     @objc private func dismissKeyboard() {
@@ -50,7 +63,7 @@ class ExchangeRateController: UIViewController {
 
 extension ExchangeRateController: UpdateDelegate {
     func updateUSDAmount(usd: String) {
-            amountUSDTextField.text = usd
+        amountUSDTextField.text = usd
     }
     
     func updateRateText(rate: String) {

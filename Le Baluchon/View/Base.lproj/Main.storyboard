@@ -44,14 +44,16 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="pqK-GJ-DtQ">
                                         <rect key="frame" x="0.0" y="0.0" width="334" height="75"/>
                                         <subviews>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="1" borderStyle="roundedRect" textAlignment="right" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QBg-LE-f1h">
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="1" borderStyle="roundedRect" textAlignment="right" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QBg-LE-f1h" customClass="CustomUITextField" customModule="Le_Baluchon" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="274" height="75"/>
                                                 <color key="backgroundColor" red="0.41163812502466068" green="0.41163812502466068" blue="0.41163812502466068" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <color key="textColor" red="1" green="0.64260193171027624" blue="0.23825358994388979" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="30"/>
-                                                <textInputTraits key="textInputTraits" keyboardType="decimalPad" keyboardAppearance="alert"/>
+                                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="decimalPad" keyboardAppearance="alert" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
                                                 <connections>
                                                     <action selector="tappedAmountEURTextField:" destination="Cg0-r8-CUL" eventType="editingDidBegin" id="OmX-NK-JLe"/>
+                                                    <action selector="tappedOutsideEURTextField:" destination="Cg0-r8-CUL" eventType="editingDidEnd" id="iYe-FZ-7kT"/>
+                                                    <action selector="typpedMoreThanOneDot:" destination="Cg0-r8-CUL" eventType="editingChanged" id="TM2-Em-MUY"/>
                                                 </connections>
                                             </textField>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="lFC-Fl-wgf">
@@ -122,7 +124,7 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YNV-zs-XLd">
-                                <rect key="frame" x="87" y="713" width="240" height="50"/>
+                                <rect key="frame" x="87" y="688" width="240" height="50"/>
                                 <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="240" id="gWJ-J8-vpy"/>
@@ -145,7 +147,7 @@
                             <constraint firstItem="fpl-da-bSL" firstAttribute="centerY" secondItem="XfU-eu-3Ct" secondAttribute="centerY" id="9Rb-Su-rtf"/>
                             <constraint firstItem="fpl-da-bSL" firstAttribute="centerX" secondItem="XfU-eu-3Ct" secondAttribute="centerX" id="IFN-7X-Qhj"/>
                             <constraint firstItem="rUd-cI-XnT" firstAttribute="trailing" secondItem="fpl-da-bSL" secondAttribute="trailing" constant="40" id="RhZ-gf-X1A"/>
-                            <constraint firstItem="rUd-cI-XnT" firstAttribute="bottom" secondItem="YNV-zs-XLd" secondAttribute="bottom" constant="50" id="SJy-KV-BdJ"/>
+                            <constraint firstItem="rUd-cI-XnT" firstAttribute="bottom" secondItem="YNV-zs-XLd" secondAttribute="bottom" constant="75" id="SJy-KV-BdJ"/>
                             <constraint firstItem="fpl-da-bSL" firstAttribute="leading" secondItem="rUd-cI-XnT" secondAttribute="leading" constant="40" id="xkz-mf-xAi"/>
                         </constraints>
                     </view>

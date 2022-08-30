@@ -19,6 +19,7 @@
 		54B13D8128BE5097001E1E92 /* ExchangeRateLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54B13D8028BE5097001E1E92 /* ExchangeRateLoader.swift */; };
 		54B13D8328BE50C6001E1E92 /* ExchangeRateMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54B13D8228BE50C5001E1E92 /* ExchangeRateMapper.swift */; };
 		54B13D8528BE52F0001E1E92 /* UpdateDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54B13D8428BE52F0001E1E92 /* UpdateDelegate.swift */; };
+		54B13D8728BE6C2D001E1E92 /* UITextField+Custom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54B13D8628BE6C2D001E1E92 /* UITextField+Custom.swift */; };
 		54F40A5728ABC8720000CC3A /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54F40A5628ABC8720000CC3A /* NetworkError.swift */; };
 		54F40A5928ABCE510000CC3A /* UiViewController+Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54F40A5828ABCE510000CC3A /* UiViewController+Alert.swift */; };
 /* End PBXBuildFile section */
@@ -38,6 +39,7 @@
 		54B13D8028BE5097001E1E92 /* ExchangeRateLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeRateLoader.swift; sourceTree = "<group>"; };
 		54B13D8228BE50C5001E1E92 /* ExchangeRateMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeRateMapper.swift; sourceTree = "<group>"; };
 		54B13D8428BE52F0001E1E92 /* UpdateDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateDelegate.swift; sourceTree = "<group>"; };
+		54B13D8628BE6C2D001E1E92 /* UITextField+Custom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Custom.swift"; sourceTree = "<group>"; };
 		54F40A5628ABC8720000CC3A /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		54F40A5828ABCE510000CC3A /* UiViewController+Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UiViewController+Alert.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -85,12 +87,7 @@
 			isa = PBXGroup;
 			children = (
 				547ECD0A28AA7CCF00B86407 /* URLSessionHTTPClient.swift */,
-				547ECD0428AA71CC00B86407 /* ExchangeRate.swift */,
-				54B13D8428BE52F0001E1E92 /* UpdateDelegate.swift */,
-				54B13D8228BE50C5001E1E92 /* ExchangeRateMapper.swift */,
-				54B13D8028BE5097001E1E92 /* ExchangeRateLoader.swift */,
-				54F40A5628ABC8720000CC3A /* NetworkError.swift */,
-				547ECD0C28AA836600B86407 /* ExchangeRate.json */,
+				54B13D8928BE6F3D001E1E92 /* ExchangeRateModel */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -99,7 +96,7 @@
 			isa = PBXGroup;
 			children = (
 				54F40A5828ABCE510000CC3A /* UiViewController+Alert.swift */,
-				547ECD0228AA71A100B86407 /* ExchangeRateController.swift */,
+				54B13D8828BE6F19001E1E92 /* ExchangeRateController */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -121,6 +118,28 @@
 				547ECCF028AA6F5600B86407 /* SceneDelegate.swift */,
 			);
 			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		54B13D8828BE6F19001E1E92 /* ExchangeRateController */ = {
+			isa = PBXGroup;
+			children = (
+				54B13D8628BE6C2D001E1E92 /* UITextField+Custom.swift */,
+				547ECD0228AA71A100B86407 /* ExchangeRateController.swift */,
+			);
+			path = ExchangeRateController;
+			sourceTree = "<group>";
+		};
+		54B13D8928BE6F3D001E1E92 /* ExchangeRateModel */ = {
+			isa = PBXGroup;
+			children = (
+				547ECD0428AA71CC00B86407 /* ExchangeRate.swift */,
+				54B13D8428BE52F0001E1E92 /* UpdateDelegate.swift */,
+				54B13D8228BE50C5001E1E92 /* ExchangeRateMapper.swift */,
+				54B13D8028BE5097001E1E92 /* ExchangeRateLoader.swift */,
+				54F40A5628ABC8720000CC3A /* NetworkError.swift */,
+				547ECD0C28AA836600B86407 /* ExchangeRate.json */,
+			);
+			path = ExchangeRateModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -196,6 +215,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				547ECD0528AA71CC00B86407 /* ExchangeRate.swift in Sources */,
+				54B13D8728BE6C2D001E1E92 /* UITextField+Custom.swift in Sources */,
 				54B13D8528BE52F0001E1E92 /* UpdateDelegate.swift in Sources */,
 				54B13D8128BE5097001E1E92 /* ExchangeRateLoader.swift in Sources */,
 				547ECD0B28AA7CCF00B86407 /* URLSessionHTTPClient.swift in Sources */,

@@ -31,11 +31,11 @@ final class ExchangeRate {
             delegate?.updateRateText(rate: rate)
         }
     }
-    private var eurAmountText: String = ""
+    var eurAmountText: String = ""
     private var usdAmountText: String = "" {
-            didSet {
-                delegate?.updateUSDAmount(usd: usdAmountText)
-            }
+        didSet {
+            delegate?.updateUSDAmount(usd: usdAmountText)
+        }
     }
     
     let service = ExchangeRateLoader()
@@ -62,17 +62,15 @@ final class ExchangeRate {
     
     private func convertEURToUSD(response: FixerResponse) {
         guard let rate: Double = response.rates["USD"] else {
-            delegate?.throwAlert(message: "Please enter an amount before convert")
             return
         }
-        guard rate != 0 else {
-            delegate?.throwAlert(message: "Please enter a correct amount before convert")
+        guard eurAmountText != "0" else {
+            delegate?.throwAlert(message: "Please enter a correct amount to convert.")
             return
         }
         
         let amountEUR = Double(eurAmountText) ?? 1.00
         usdAmountText = String(amountEUR * rate)
     }
-    
-    }
+}
 
