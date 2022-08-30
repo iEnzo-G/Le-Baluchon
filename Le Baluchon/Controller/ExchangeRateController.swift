@@ -27,66 +27,52 @@ class ExchangeRateController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        EURAmountTextField.addGestureRecognizer(gestureRecognizer())
-        
-        service.load(url: url) { result in
-            switch result {
-            case let .success(data):
-                print(data)
-                self.getRates(response: data)
-                self.convertEURToUSD(response: data)
-            case let .failure(error):
-                print(error.localizedDescription)
-            }
-        }
-        
-        
+        view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard)))
+        newEntryInTextField()
+//        service.load(url: url) { [weak self] result in
+//            switch result {
+//            case let .success(data):
+//                print(data)
+//                self?.getRates(response: data)
+//                self?.convertEURToUSD(response: data)
+//            case let .failure(error):
+//                print(error.localizedDescription)
+//            }
+//        }
     }
     
     
     
     // MARK: - Actions
     
-    private func gestureRecognizer() -> UIGestureRecognizer {
-        let gesture = UIGestureRecognizer(target: self, action: #selector(dismissKeyboard))
-        return gesture
-    }
-    
     @objc private func dismissKeyboard() {
         EURAmountTextField.resignFirstResponder()
     }
     
-    private func getRates(response: FixerResponse){
-        
-        let rates = String(format:"%f", response.rates["USD"]!)
-        rateLabel.text = "Rate: " + rates
-    }
-    
-    private func convertEURToUSD(response: FixerResponse) {
-        guard let rate: Double = response.rates["USD"] else {
-            return
-        }
-        
-        let amountEUR = Double(EURAmountTextField.text!) ?? 1.00
-        USDAmountTextField.text = String(amountEUR * rate)
-    }
-    
-    private func newEntryInTextField() {
-       if EURAmountTextField.isTouchInside {
-            EURAmountTextField.text = ""
-        }
-    }
-    
     @IBAction func tappedGetExchangeRateButton(_ sender: UIButton) {
-        service.load(url: url) { result in
+        service.load(url: url) { [weak self] result in
             switch result {
             case let .success(data):
                 print(data)
-                self.getRates(response: data)
-                self.convertEURToUSD(response: data)
+                self?.getRates(response: data)
+                self?.convertEURToUSD(response: data)
             case let .failure(error):
                 print(error.localizedDescription)
             }
         }
     }
+}
+
+    // MARK: - Extension
+
+extension ExchangeRateController: UpdateDelegate {
+    func throwAlert(message: String) {
+        
+    }
+    
+    func updateScreen(calculText: String) {
+        
+    }
+    
+    
 }
