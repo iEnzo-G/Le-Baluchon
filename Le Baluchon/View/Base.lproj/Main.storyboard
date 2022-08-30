@@ -50,6 +50,9 @@
                                                 <color key="textColor" red="1" green="0.64260193171027624" blue="0.23825358994388979" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="30"/>
                                                 <textInputTraits key="textInputTraits" keyboardType="decimalPad" keyboardAppearance="alert"/>
+                                                <connections>
+                                                    <action selector="tappedAmountEURTextField:" destination="Cg0-r8-CUL" eventType="editingDidBegin" id="OmX-NK-JLe"/>
+                                                </connections>
                                             </textField>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="lFC-Fl-wgf">
                                                 <rect key="frame" x="284" y="0.0" width="50" height="75"/>
@@ -148,8 +151,8 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Currency" image="dollarsign.circle.fill" catalog="system" id="yrl-qy-cyU"/>
                     <connections>
-                        <outlet property="EURAmountTextField" destination="QBg-LE-f1h" id="MdA-Sc-9Ur"/>
-                        <outlet property="USDAmountTextField" destination="wxa-Od-95H" id="m61-hc-7Le"/>
+                        <outlet property="amountEURTextField" destination="QBg-LE-f1h" id="MdA-Sc-9Ur"/>
+                        <outlet property="amountUSDTextField" destination="wxa-Od-95H" id="m61-hc-7Le"/>
                         <outlet property="getTheExchangeRateButton" destination="YNV-zs-XLd" id="prp-wc-XY9"/>
                         <outlet property="rateLabel" destination="xqV-JY-IX2" id="MuS-Xb-ZK9"/>
                     </connections>
