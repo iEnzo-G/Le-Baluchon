@@ -17,6 +17,9 @@ struct FixerResponse: Decodable {
 final class ExchangeRate {
     // MARK: - Properties
     
+    let service = ExchangeRateLoader()
+    let url = URL(string: "https://api.apilayer.com/fixer/latest?symbols=USD&base=EUR&apikey=Vxvy8dMQlAuKjbvNvkInyxUM6zpzz9JG")!
+    
     weak var delegate: UpdateDelegate?
     var formatter: NumberFormatter = {
         let formatter = NumberFormatter()
@@ -38,9 +41,6 @@ final class ExchangeRate {
         }
     }
     
-    let service = ExchangeRateLoader()
-    let url = URL(string: "https://api.apilayer.com/fixer/latest?symbols=USD&base=EUR&apikey=Vxvy8dMQlAuKjbvNvkInyxUM6zpzz9JG")!
-    
     // MARK: - Functions
     
     func getExchangeRate() {
@@ -57,20 +57,18 @@ final class ExchangeRate {
     }
     
     private func getRates(response: FixerResponse){
-        rate = "Rate: " + String(format:"%f", response.rates["USD"]!)
+        rate = "Rate: " + formatter.string(for: response.rates["USD"])!
     }
     
     private func convertEURToUSD(response: FixerResponse) {
-        guard let rate: Double = response.rates["USD"] else {
-            return
-        }
-        guard eurAmountText != "0" else {
+        guard eurAmountText != "0", eurAmountText != "" else {
             delegate?.throwAlert(message: "Please enter a correct amount to convert.")
             return
         }
-        
-        let amountEUR = Double(eurAmountText) ?? 1.00
-        usdAmountText = String(amountEUR * rate)
+        guard let amountEUR = Double(eurAmountText) else { return }
+        guard let rate: Double = response.rates["USD"] else { return }
+        guard let result = formatter.string(for: amountEUR * rate) else { return }
+        usdAmountText = result
     }
+    
 }
-

@@ -24,6 +24,7 @@ class ExchangeRateController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
         exchangeRate.delegate = self
         view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard)))
 //        exchangeRate.getExchangeRate()
@@ -33,21 +34,22 @@ class ExchangeRateController: UIViewController {
     
     // MARK: - Actions
     
-    @IBAction func tappedOutsideEURTextField(_ sender: UITextField) {
+    @IBAction func typedInEURTextField(_ sender: UITextField) {
+        var dotCount = 0
+        for (_, dot) in amountEURTextField.text!.enumerated() {
+            if dot == "." {
+                dotCount += 1
+            }
+            if dotCount > 1 {
+                amountEURTextField.text?.removeLast()
+            }
+        }
         guard let eurAmount = amountEURTextField.text else { return }
         exchangeRate.eurAmountText = eurAmount
     }
     
     @IBAction func tappedAmountEURTextField(_ sender: UITextField) {
         amountEURTextField.text = ""
-    }
-    
-    @IBAction func typpedMoreThanOneDot(_ sender: UITextField) {
-//        guard !amountEURTextField.text!.contains(".") else {
-//            amountEURTextField.text?.removeLast()
-//            return
-//        }
-//        amountEURTextField.text!.append(".")
     }
     
     @objc private func dismissKeyboard() {
