@@ -29,9 +29,10 @@ final class ExchangeRate {
         return formatter
     }()
     
-    private var rate: String = "" {
+    private var rate: Double = 0.0 {
         didSet {
-            delegate?.updateRateText(rate: rate)
+            guard let rateFormatter = formatter.string(for: rate) else { return }
+            delegate?.updateRateText(rate: rateFormatter)
         }
     }
     var eurAmountText: String = ""
@@ -49,7 +50,6 @@ final class ExchangeRate {
             case let .success(data):
                 print(data)
                 self?.getRates(response: data)
-                self?.convertEURToUSD(response: data)
             case let .failure(error):
                 print(error.localizedDescription)
             }
@@ -57,16 +57,15 @@ final class ExchangeRate {
     }
     
     private func getRates(response: FixerResponse){
-        rate = "Rate: " + formatter.string(for: response.rates["USD"])!
+        rate = response.rates["USD"]!
     }
     
-    private func convertEURToUSD(response: FixerResponse) {
+    func convertEURToUSD() {
         guard eurAmountText != "0", eurAmountText != "" else {
             delegate?.throwAlert(message: "Please enter a correct amount to convert.")
             return
         }
         guard let amountEUR = Double(eurAmountText) else { return }
-        guard let rate: Double = response.rates["USD"] else { return }
         guard let result = formatter.string(for: amountEUR * rate) else { return }
         usdAmountText = result
     }

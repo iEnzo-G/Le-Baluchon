@@ -14,7 +14,7 @@ class ExchangeRateController: UIViewController {
     @IBOutlet weak var amountEURTextField: CustomUITextField!
     @IBOutlet weak var amountUSDTextField: UITextField!
     @IBOutlet weak var rateLabel: UILabel!
-    @IBOutlet weak var getTheExchangeRateButton: UIButton!
+    @IBOutlet weak var exchangeStackView: UIStackView!
     
     // MARK: - Properties
     
@@ -24,12 +24,12 @@ class ExchangeRateController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         exchangeRate.delegate = self
-        view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard)))
-//        exchangeRate.getExchangeRate()
+        exchangeRate.getExchangeRate()
+        view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(dismissKeyboardAndConvert)))
     }
     
+
     
     
     // MARK: - Actions
@@ -44,6 +44,7 @@ class ExchangeRateController: UIViewController {
                 amountEURTextField.text?.removeLast()
             }
         }
+        
         guard let eurAmount = amountEURTextField.text else { return }
         exchangeRate.eurAmountText = eurAmount
     }
@@ -52,12 +53,9 @@ class ExchangeRateController: UIViewController {
         amountEURTextField.text = ""
     }
     
-    @objc private func dismissKeyboard() {
+    @objc private func dismissKeyboardAndConvert() {
         amountEURTextField.resignFirstResponder()
-    }
-    
-    @IBAction func tappedGetExchangeRateButton(_ sender: UIButton) {
-        exchangeRate.getExchangeRate()
+        exchangeRate.convertEURToUSD()
     }
 }
 

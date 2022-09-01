@@ -16,6 +16,7 @@
 		547ECD0528AA71CC00B86407 /* ExchangeRate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 547ECD0428AA71CC00B86407 /* ExchangeRate.swift */; };
 		547ECD0B28AA7CCF00B86407 /* URLSessionHTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 547ECD0A28AA7CCF00B86407 /* URLSessionHTTPClient.swift */; };
 		547ECD0D28AA836600B86407 /* ExchangeRate.json in Resources */ = {isa = PBXBuildFile; fileRef = 547ECD0C28AA836600B86407 /* ExchangeRate.json */; };
+		5498842628C056CA00EB2915 /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5498842528C056CA00EB2915 /* Weather.swift */; };
 		54B13D8128BE5097001E1E92 /* ExchangeRateLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54B13D8028BE5097001E1E92 /* ExchangeRateLoader.swift */; };
 		54B13D8328BE50C6001E1E92 /* ExchangeRateMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54B13D8228BE50C5001E1E92 /* ExchangeRateMapper.swift */; };
 		54B13D8528BE52F0001E1E92 /* UpdateDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54B13D8428BE52F0001E1E92 /* UpdateDelegate.swift */; };
@@ -36,6 +37,7 @@
 		547ECD0428AA71CC00B86407 /* ExchangeRate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeRate.swift; sourceTree = "<group>"; };
 		547ECD0A28AA7CCF00B86407 /* URLSessionHTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionHTTPClient.swift; sourceTree = "<group>"; };
 		547ECD0C28AA836600B86407 /* ExchangeRate.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = ExchangeRate.json; sourceTree = "<group>"; };
+		5498842528C056CA00EB2915 /* Weather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weather.swift; sourceTree = "<group>"; };
 		54B13D8028BE5097001E1E92 /* ExchangeRateLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeRateLoader.swift; sourceTree = "<group>"; };
 		54B13D8228BE50C5001E1E92 /* ExchangeRateMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeRateMapper.swift; sourceTree = "<group>"; };
 		54B13D8428BE52F0001E1E92 /* UpdateDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateDelegate.swift; sourceTree = "<group>"; };
@@ -88,6 +90,7 @@
 			children = (
 				547ECD0A28AA7CCF00B86407 /* URLSessionHTTPClient.swift */,
 				54B13D8928BE6F3D001E1E92 /* ExchangeRateModel */,
+				5498842428C056A700EB2915 /* WeatherModel */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -118,6 +121,14 @@
 				547ECCF028AA6F5600B86407 /* SceneDelegate.swift */,
 			);
 			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		5498842428C056A700EB2915 /* WeatherModel */ = {
+			isa = PBXGroup;
+			children = (
+				5498842528C056CA00EB2915 /* Weather.swift */,
+			);
+			path = WeatherModel;
 			sourceTree = "<group>";
 		};
 		54B13D8828BE6F19001E1E92 /* ExchangeRateController */ = {
@@ -218,6 +229,7 @@
 				54B13D8728BE6C2D001E1E92 /* UITextField+Custom.swift in Sources */,
 				54B13D8528BE52F0001E1E92 /* UpdateDelegate.swift in Sources */,
 				54B13D8128BE5097001E1E92 /* ExchangeRateLoader.swift in Sources */,
+				5498842628C056CA00EB2915 /* Weather.swift in Sources */,
 				547ECD0B28AA7CCF00B86407 /* URLSessionHTTPClient.swift in Sources */,
 				54B13D8328BE50C6001E1E92 /* ExchangeRateMapper.swift in Sources */,
 				547ECCEF28AA6F5600B86407 /* AppDelegate.swift in Sources */,
