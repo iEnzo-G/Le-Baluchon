@@ -14,7 +14,6 @@ class ExchangeRateController: UIViewController {
     @IBOutlet weak var amountEURTextField: CustomUITextField!
     @IBOutlet weak var amountUSDTextField: UITextField!
     @IBOutlet weak var rateLabel: UILabel!
-    @IBOutlet weak var exchangeStackView: UIStackView!
     
     // MARK: - Properties
     
@@ -25,7 +24,7 @@ class ExchangeRateController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         exchangeRate.delegate = self
-        exchangeRate.getExchangeRate()
+//        exchangeRate.getExchangeRate()
         view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(dismissKeyboardAndConvert)))
     }
     
