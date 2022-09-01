@@ -17,10 +17,10 @@ struct FixerResponse: Decodable {
 final class ExchangeRate {
     // MARK: - Properties
     
-    let service = ExchangeRateLoader()
+    let service = FixerLoader()
     let url = URL(string: "https://api.apilayer.com/fixer/latest?symbols=USD&base=EUR&apikey=Vxvy8dMQlAuKjbvNvkInyxUM6zpzz9JG")!
     
-    weak var delegate: UpdateDelegate?
+    weak var delegate: UpdateCurrencyDelegate?
     var formatter: NumberFormatter = {
         let formatter = NumberFormatter()
         formatter.numberStyle = .decimal
@@ -32,7 +32,7 @@ final class ExchangeRate {
     private var rate: Double = 0.0 {
         didSet {
             guard let rateFormatter = formatter.string(for: rate) else { return }
-            delegate?.updateRateText(rate: rateFormatter)
+            delegate?.updateRateText(rate: "Rate: " + rateFormatter)
         }
     }
     var eurAmountText: String = ""

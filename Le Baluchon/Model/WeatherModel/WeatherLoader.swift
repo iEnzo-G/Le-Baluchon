@@ -1,13 +1,13 @@
 //
-//  ExchangeRateLoader.swift
+//  WeatherLoader.swift
 //  Le Baluchon
 //
-//  Created by Enzo Gammino on 29/08/2022.
+//  Created by Enzo Gammino on 01/09/2022.
 //
 
 import Foundation
 
-final class ExchangeRateLoader {
+final class WeatherLoader {
     
     let client: URLSessionHTTPClient
     
@@ -15,13 +15,13 @@ final class ExchangeRateLoader {
         self.client = client
     }
     
-    func load(url: URL, completion: @escaping (Result<FixerResponse, Error>) -> Void) {
+    func load(url: URL, completion: @escaping (Result<WeatherResponse, Error>) -> Void) {
         client.get(url: url) { [weak self] result in
             guard self != nil else { return }
             switch result {
             case let .success((data, response)):
                 do {
-                    let result = try ExchangeMapper.map(data: data, response: response)
+                    let result = try WeatherMapper.map(data: data, response: response)
                     completion(.success(result))
                     return
                 }  catch {

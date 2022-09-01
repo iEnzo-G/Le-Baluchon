@@ -60,7 +60,7 @@ class ExchangeRateController: UIViewController {
 
     // MARK: - Extension
 
-extension ExchangeRateController: UpdateDelegate {
+extension ExchangeRateController: UpdateCurrencyDelegate {
     func updateUSDAmount(usd: String) {
         amountUSDTextField.text = usd
     }

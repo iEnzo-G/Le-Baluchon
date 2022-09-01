@@ -8,7 +8,7 @@
 import Foundation
 
 // Communicate between Model and Controller
-protocol UpdateDelegate: NSObject {
+protocol UpdateCurrencyDelegate: NSObject {
     func throwAlert(message: String)
     func updateUSDAmount(usd: String)
     func updateRateText(rate: String)

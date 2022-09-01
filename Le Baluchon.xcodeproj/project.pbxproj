@@ -20,10 +20,12 @@
 		5498842928C0BBDB00EB2915 /* WeatherController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5498842828C0BBDB00EB2915 /* WeatherController.swift */; };
 		5498842B28C0C89800EB2915 /* Weather.json in Resources */ = {isa = PBXBuildFile; fileRef = 5498842A28C0C89800EB2915 /* Weather.json */; };
 		5498842D28C0D01E00EB2915 /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5498842C28C0D01E00EB2915 /* Weather.swift */; };
-		5498843028C0D05500EB2915 /* WeatherMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5498842F28C0D05500EB2915 /* WeatherMapper.swift */; };
-		54B13D8128BE5097001E1E92 /* ExchangeRateLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54B13D8028BE5097001E1E92 /* ExchangeRateLoader.swift */; };
-		54B13D8328BE50C6001E1E92 /* ExchangeRateMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54B13D8228BE50C5001E1E92 /* ExchangeRateMapper.swift */; };
-		54B13D8528BE52F0001E1E92 /* UpdateDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54B13D8428BE52F0001E1E92 /* UpdateDelegate.swift */; };
+		5498843428C0D1C300EB2915 /* UpdateWeatherDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5498843328C0D1C300EB2915 /* UpdateWeatherDelegate.swift */; };
+		5498843628C0E36400EB2915 /* WeatherLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5498843528C0E36400EB2915 /* WeatherLoader.swift */; };
+		5498843828C0E37C00EB2915 /* WeatherMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5498843728C0E37C00EB2915 /* WeatherMapper.swift */; };
+		54B13D8128BE5097001E1E92 /* FixerLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54B13D8028BE5097001E1E92 /* FixerLoader.swift */; };
+		54B13D8328BE50C6001E1E92 /* FixerMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54B13D8228BE50C5001E1E92 /* FixerMapper.swift */; };
+		54B13D8528BE52F0001E1E92 /* UpdateCurrencyDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54B13D8428BE52F0001E1E92 /* UpdateCurrencyDelegate.swift */; };
 		54B13D8728BE6C2D001E1E92 /* UITextField+Custom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54B13D8628BE6C2D001E1E92 /* UITextField+Custom.swift */; };
 		54F40A5728ABC8720000CC3A /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54F40A5628ABC8720000CC3A /* NetworkError.swift */; };
 		54F40A5928ABCE510000CC3A /* UiViewController+Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54F40A5828ABCE510000CC3A /* UiViewController+Alert.swift */; };
@@ -45,10 +47,12 @@
 		5498842828C0BBDB00EB2915 /* WeatherController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherController.swift; sourceTree = "<group>"; };
 		5498842A28C0C89800EB2915 /* Weather.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Weather.json; sourceTree = "<group>"; };
 		5498842C28C0D01E00EB2915 /* Weather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weather.swift; sourceTree = "<group>"; };
-		5498842F28C0D05500EB2915 /* WeatherMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherMapper.swift; sourceTree = "<group>"; };
-		54B13D8028BE5097001E1E92 /* ExchangeRateLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeRateLoader.swift; sourceTree = "<group>"; };
-		54B13D8228BE50C5001E1E92 /* ExchangeRateMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeRateMapper.swift; sourceTree = "<group>"; };
-		54B13D8428BE52F0001E1E92 /* UpdateDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateDelegate.swift; sourceTree = "<group>"; };
+		5498843328C0D1C300EB2915 /* UpdateWeatherDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateWeatherDelegate.swift; sourceTree = "<group>"; };
+		5498843528C0E36400EB2915 /* WeatherLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherLoader.swift; sourceTree = "<group>"; };
+		5498843728C0E37C00EB2915 /* WeatherMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherMapper.swift; sourceTree = "<group>"; };
+		54B13D8028BE5097001E1E92 /* FixerLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FixerLoader.swift; sourceTree = "<group>"; };
+		54B13D8228BE50C5001E1E92 /* FixerMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FixerMapper.swift; sourceTree = "<group>"; };
+		54B13D8428BE52F0001E1E92 /* UpdateCurrencyDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateCurrencyDelegate.swift; sourceTree = "<group>"; };
 		54B13D8628BE6C2D001E1E92 /* UITextField+Custom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Custom.swift"; sourceTree = "<group>"; };
 		54F40A5628ABC8720000CC3A /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		54F40A5828ABCE510000CC3A /* UiViewController+Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UiViewController+Alert.swift"; sourceTree = "<group>"; };
@@ -97,6 +101,7 @@
 			isa = PBXGroup;
 			children = (
 				547ECD0A28AA7CCF00B86407 /* URLSessionHTTPClient.swift */,
+				54F40A5628ABC8720000CC3A /* NetworkError.swift */,
 				54B13D8928BE6F3D001E1E92 /* ExchangeRateModel */,
 				5498842428C056A700EB2915 /* WeatherModel */,
 			);
@@ -135,9 +140,11 @@
 		5498842428C056A700EB2915 /* WeatherModel */ = {
 			isa = PBXGroup;
 			children = (
-				5498842528C056CA00EB2915 /* WeatherStruct.swift */,
-				5498842F28C0D05500EB2915 /* WeatherMapper.swift */,
 				5498842C28C0D01E00EB2915 /* Weather.swift */,
+				5498843528C0E36400EB2915 /* WeatherLoader.swift */,
+				5498843728C0E37C00EB2915 /* WeatherMapper.swift */,
+				5498842528C056CA00EB2915 /* WeatherStruct.swift */,
+				5498843328C0D1C300EB2915 /* UpdateWeatherDelegate.swift */,
 				5498842A28C0C89800EB2915 /* Weather.json */,
 			);
 			path = WeatherModel;
@@ -163,11 +170,10 @@
 		54B13D8928BE6F3D001E1E92 /* ExchangeRateModel */ = {
 			isa = PBXGroup;
 			children = (
+				54B13D8228BE50C5001E1E92 /* FixerMapper.swift */,
+				54B13D8028BE5097001E1E92 /* FixerLoader.swift */,
 				547ECD0428AA71CC00B86407 /* ExchangeRate.swift */,
-				54B13D8428BE52F0001E1E92 /* UpdateDelegate.swift */,
-				54B13D8228BE50C5001E1E92 /* ExchangeRateMapper.swift */,
-				54B13D8028BE5097001E1E92 /* ExchangeRateLoader.swift */,
-				54F40A5628ABC8720000CC3A /* NetworkError.swift */,
+				54B13D8428BE52F0001E1E92 /* UpdateCurrencyDelegate.swift */,
 				547ECD0C28AA836600B86407 /* ExchangeRate.json */,
 			);
 			path = ExchangeRateModel;
@@ -248,17 +254,19 @@
 			files = (
 				547ECD0528AA71CC00B86407 /* ExchangeRate.swift in Sources */,
 				54B13D8728BE6C2D001E1E92 /* UITextField+Custom.swift in Sources */,
-				54B13D8528BE52F0001E1E92 /* UpdateDelegate.swift in Sources */,
-				54B13D8128BE5097001E1E92 /* ExchangeRateLoader.swift in Sources */,
+				54B13D8528BE52F0001E1E92 /* UpdateCurrencyDelegate.swift in Sources */,
+				54B13D8128BE5097001E1E92 /* FixerLoader.swift in Sources */,
+				5498843428C0D1C300EB2915 /* UpdateWeatherDelegate.swift in Sources */,
+				5498843628C0E36400EB2915 /* WeatherLoader.swift in Sources */,
 				5498842628C056CA00EB2915 /* WeatherStruct.swift in Sources */,
 				547ECD0B28AA7CCF00B86407 /* URLSessionHTTPClient.swift in Sources */,
 				5498842D28C0D01E00EB2915 /* Weather.swift in Sources */,
 				5498842928C0BBDB00EB2915 /* WeatherController.swift in Sources */,
-				54B13D8328BE50C6001E1E92 /* ExchangeRateMapper.swift in Sources */,
+				54B13D8328BE50C6001E1E92 /* FixerMapper.swift in Sources */,
 				547ECCEF28AA6F5600B86407 /* AppDelegate.swift in Sources */,
 				54F40A5728ABC8720000CC3A /* NetworkError.swift in Sources */,
 				54F40A5928ABCE510000CC3A /* UiViewController+Alert.swift in Sources */,
-				5498843028C0D05500EB2915 /* WeatherMapper.swift in Sources */,
+				5498843828C0E37C00EB2915 /* WeatherMapper.swift in Sources */,
 				547ECD0328AA71A100B86407 /* ExchangeRateController.swift in Sources */,
 				547ECCF128AA6F5600B86407 /* SceneDelegate.swift in Sources */,
 			);

@@ -8,7 +8,7 @@
 import Foundation
 
 // The mapper will be use to decode the answer of API
-final class ExchangeMapper {
+final class FixerMapper {
     private init() {}
     
     static func map(data: Data, response: HTTPURLResponse) throws -> FixerResponse {
