@@ -17,4 +17,5 @@ protocol UpdateWeatherDelegate: NSObject {
     func updateTempMinLabel(tempMin: String)
     func updateTempMaxLabel(tempMax: String)
     func updateWeatherDescriptionLabel(weatherDescription: String)
+    func updateWeatherImageView(icon: String)
 }

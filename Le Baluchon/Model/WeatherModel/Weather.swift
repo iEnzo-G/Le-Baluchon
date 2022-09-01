@@ -28,7 +28,7 @@ final class WeatherModel {
     var wind: Double = 2.0 {
         didSet {
             guard let windFormatter = formatter.string(for: wind) else { return }
-            delegate?.updateWindLabel(wind: "Wind: " + windFormatter + " mph")
+            delegate?.updateWindLabel(wind: "Wind: " + windFormatter + unitSpeed)
         }
     }
     var temp: Double = 68.0 {
@@ -40,31 +40,43 @@ final class WeatherModel {
     var tempMin: Double = 68.0 {
         didSet {
             guard let tempMinFormatter = formatter.string(for: tempMin) else { return }
-            delegate?.updateTempMinLabel(tempMin: "Temp min: " + tempMinFormatter + " °F")
+            delegate?.updateTempMinLabel(tempMin: "Temp min: " + tempMinFormatter + unitTemp)
         }
     }
     var tempMax: Double = 70.0 {
         didSet {
             guard let tempMaxFormatter = formatter.string(for: tempMax) else { return }
-            delegate?.updateTempMaxLabel(tempMax: "Temp max: " + tempMaxFormatter + " °F")
+            delegate?.updateTempMaxLabel(tempMax: "Temp max: " + tempMaxFormatter + unitTemp)
         }
     }
     var weatherDescription: String = "Clear sky" {
         didSet {
-            
             delegate?.updateWeatherDescriptionLabel(weatherDescription: weatherDescription.capitalized)
         }
     }
-    var icon: String = "01d"
+    var icon: String = "01d" {
+        didSet {
+            delegate?.updateWeatherImageView(icon: icon)
+        }
+    }
     
     //MARK: - Service
     
     let service = WeatherLoader()
-    let url = URL(string: "http://api.openweathermap.org/data/2.5/group?id=5128581,2968815&units=imperial&apikey=5f51225038fc1ca49b43a55ceb15d459")!
+    var unitTemp: String = " °F"
+    var unitSpeed: String = " mph"
+    var url = URL(string: "http://api.openweathermap.org/data/2.5/group?id=5128581,2968815&units=imperial&apikey=5f51225038fc1ca49b43a55ceb15d459")!
     
 
-    
 // MARK: - Functions
+    
+    func changeSystem(systeme: String) -> URL {
+        unitSpeed = systeme == "imperial" ? " mph" : " m/s"
+        unitTemp = systeme == "imperial" ? " °F" : " °C"
+        
+        let url = URL(string: "http://api.openweathermap.org/data/2.5/group?id=5128581,2968815&units=" + systeme + "&apikey=5f51225038fc1ca49b43a55ceb15d459")!
+        return url
+    }
     
     func getWeather(city: Int) {
         service.load(url: url) { [weak self] result in
