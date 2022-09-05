@@ -21,7 +21,7 @@ final class ExchangeRate {
     let url = URL(string: "https://api.apilayer.com/fixer/latest?symbols=USD&base=EUR&apikey=Vxvy8dMQlAuKjbvNvkInyxUM6zpzz9JG")!
     
     weak var delegate: UpdateCurrencyDelegate?
-    var formatter: NumberFormatter = {
+    private var formatter: NumberFormatter = {
         let formatter = NumberFormatter()
         formatter.numberStyle = .decimal
         formatter.minimumFractionDigits = 0
@@ -61,10 +61,15 @@ final class ExchangeRate {
     }
     
     func convertEURToUSD() {
-        guard eurAmountText != "0", eurAmountText != "" else {
+        guard eurAmountText != "0" else {
             delegate?.throwAlert(message: "Please enter a correct amount to convert.")
             return
         }
+        guard eurAmountText != "" else {
+            delegate?.throwAlert(message: "Please enter an amount to convert.")
+            return
+        }
+        
         guard let amountEUR = Double(eurAmountText) else { return }
         guard let result = formatter.string(for: amountEUR * rate) else { return }
         usdAmountText = result

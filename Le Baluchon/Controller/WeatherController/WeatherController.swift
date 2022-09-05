@@ -8,7 +8,7 @@
 
 import UIKit
 
-class WeatherController: UIViewController {
+final class WeatherController: UIViewController {
     
     // MARK: - Outlets
     

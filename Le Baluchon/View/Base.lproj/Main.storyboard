@@ -44,13 +44,14 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="pqK-GJ-DtQ">
                                         <rect key="frame" x="0.0" y="0.0" width="334" height="75"/>
                                         <subviews>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="1" borderStyle="roundedRect" textAlignment="right" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QBg-LE-f1h" customClass="CustomUITextField" customModule="Le_Baluchon" customModuleProvider="target">
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="0" borderStyle="roundedRect" textAlignment="right" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QBg-LE-f1h" customClass="CustomUITextField" customModule="Le_Baluchon" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="274" height="75"/>
                                                 <color key="backgroundColor" red="0.41163812502466068" green="0.41163812502466068" blue="0.41163812502466068" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <color key="textColor" red="1" green="0.64260193171027624" blue="0.23825358994388979" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="30"/>
                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="decimalPad" keyboardAppearance="alert" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
                                                 <connections>
+                                                    <action selector="editingDidEnd:" destination="Cg0-r8-CUL" eventType="editingDidEnd" id="MrB-WC-677"/>
                                                     <action selector="tappedAmountEURTextField:" destination="Cg0-r8-CUL" eventType="editingDidBegin" id="OmX-NK-JLe"/>
                                                     <action selector="typedInEURTextField:" destination="Cg0-r8-CUL" eventType="editingChanged" id="ZJR-g1-skU"/>
                                                 </connections>

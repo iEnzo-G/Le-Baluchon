@@ -12,62 +12,62 @@ final class WeatherModel {
     
     //MARK: - Properties
     weak var delegate: UpdateWeatherDelegate?
-    let formatter: NumberFormatter = {
+    private let formatter: NumberFormatter = {
         let formatter = NumberFormatter()
         formatter.numberStyle = .none
         formatter.maximumFractionDigits = 0
         return formatter
     }()
     
-    let dateFormatter: DateFormatter = {
+    private let dateFormatter: DateFormatter = {
         let dateFormatter = DateFormatter()
         dateFormatter.locale = Locale(identifier: "en_US")
         dateFormatter.dateFormat = "EEEE, MMM d - HH:mm"
         return dateFormatter
     }()
     
-    var humidity: Int = 47 {
+    private var humidity: Int = 47 {
         didSet {
             guard let humidityFormatter = formatter.string(for: humidity) else { return }
             delegate?.updateHumidityLabel(humidity: "Humidity: " + humidityFormatter + " %")
         }
     }
-    var wind: Double = 2.0 {
+    private var wind: Double = 2.0 {
         didSet {
             guard let windFormatter = formatter.string(for: wind) else { return }
             delegate?.updateWindLabel(wind: "Wind: " + windFormatter + unitSpeed)
         }
     }
-    var temp: Double = 68.0 {
+    private var temp: Double = 68.0 {
         didSet {
             guard let tempFormatter = formatter.string(for: temp) else { return }
             delegate?.updateTempLabel(temp: tempFormatter)
         }
     }
-    var tempMin: Double = 68.0 {
+    private var tempMin: Double = 68.0 {
         didSet {
             guard let tempMinFormatter = formatter.string(for: tempMin) else { return }
             delegate?.updateTempMinLabel(tempMin: "Temp min: " + tempMinFormatter + unitTemp)
         }
     }
-    var tempMax: Double = 70.0 {
+    private var tempMax: Double = 70.0 {
         didSet {
             guard let tempMaxFormatter = formatter.string(for: tempMax) else { return }
             delegate?.updateTempMaxLabel(tempMax: "Temp max: " + tempMaxFormatter + unitTemp)
         }
     }
-    var weatherDescription: String = "Clear sky" {
+    private var weatherDescription: String = "Clear sky" {
         didSet {
             delegate?.updateWeatherDescriptionLabel(weatherDescription: weatherDescription.capitalized)
         }
     }
-    var icon: String = "01d" {
+    private var icon: String = "01d" {
         didSet {
             delegate?.updateWeatherImageView(icon: icon)
         }
     }
     
-    var date: String = "Monday, Sep 5 - 09:23"{
+    private var date: String = "Monday, Sep 5 - 09:23"{
         didSet {
             delegate?.updateDate(date: date.capitalized)
         }
@@ -75,9 +75,9 @@ final class WeatherModel {
     
     //MARK: - Service
     
-    let service = WeatherLoader()
-    var unitTemp: String = " °F"
-    var unitSpeed: String = " mph"
+    private let service = WeatherLoader()
+    private var unitTemp: String = " °F"
+    private var unitSpeed: String = " mph"
     var url = URL(string: "http://api.openweathermap.org/data/2.5/group?id=5128581,2968815&units=imperial&apikey=5f51225038fc1ca49b43a55ceb15d459")!
     
 

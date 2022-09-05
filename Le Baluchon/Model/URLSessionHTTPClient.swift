@@ -7,7 +7,7 @@
 
 import Foundation
 
-class URLSessionHTTPClient {
+final class URLSessionHTTPClient {
     private let session: URLSession
     
     init(session: URLSession = URLSession.init(configuration: .default)) {

@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ExchangeRateController: UIViewController {
+final class ExchangeRateController: UIViewController {
     
     // MARK: - Outlets
     
@@ -24,7 +24,7 @@ class ExchangeRateController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         exchangeRate.delegate = self
-//        exchangeRate.getExchangeRate()
+        exchangeRate.getExchangeRate()
         view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(dismissKeyboardAndConvert)))
     }
     
@@ -54,6 +54,8 @@ class ExchangeRateController: UIViewController {
     
     @objc private func dismissKeyboardAndConvert() {
         amountEURTextField.resignFirstResponder()
+    }
+    @IBAction func editingDidEnd(_ sender: UITextField) {
         exchangeRate.convertEURToUSD()
     }
 }
