@@ -12,11 +12,18 @@ final class WeatherModel {
     
     //MARK: - Properties
     weak var delegate: UpdateWeatherDelegate?
-    var formatter: NumberFormatter = {
+    let formatter: NumberFormatter = {
         let formatter = NumberFormatter()
         formatter.numberStyle = .none
         formatter.maximumFractionDigits = 0
         return formatter
+    }()
+    
+    let dateFormatter: DateFormatter = {
+        let dateFormatter = DateFormatter()
+        dateFormatter.locale = Locale(identifier: "en_US")
+        dateFormatter.dateFormat = "EEEE, MMM d - HH:mm"
+        return dateFormatter
     }()
     
     var humidity: Int = 47 {
@@ -60,6 +67,12 @@ final class WeatherModel {
         }
     }
     
+    var date: String = "Monday, Sep 5 - 09:23"{
+        didSet {
+            delegate?.updateDate(date: date.capitalized)
+        }
+    }
+    
     //MARK: - Service
     
     let service = WeatherLoader()
@@ -98,5 +111,11 @@ final class WeatherModel {
         tempMax = response.list[city].main.tempMax
         weatherDescription = response.list[city].weather[0].weatherDescription
         icon = response.list[city].weather[0].icon
+    }
+    
+    func getDate(_ timezone: String) {
+        let getDate = Date()
+        dateFormatter.timeZone = TimeZone(identifier: timezone)
+        date = dateFormatter.string(from: getDate)
     }
 }

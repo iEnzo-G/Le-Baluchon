@@ -27,7 +27,7 @@ class WeatherController: UIViewController {
     // MARK: - Properties
     
     private let weather = WeatherModel()
-    private var idWeather: String = "01d"
+    private var idWeather: String = ""
     
     // MARK: - View life cycle
     
@@ -35,16 +35,16 @@ class WeatherController: UIViewController {
         super.viewDidLoad()
         weather.delegate = self
         citySwipButton.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.white], for: .normal)
+        weather.getDate("America/New_York")
         weather.getWeather(city: 0)
-        detectWeatherImage(imageView: weatherImageView, idWeather: idWeather)
     }
     
     // MARK: - Actions
     
     @IBAction func tappedCitySwipButton(_ sender: UISegmentedControl) {
-        detectWeatherImage(imageView: weatherImageView, idWeather: idWeather)
         cityNameLabel.text = citySwipButton.selectedSegmentIndex == 0 ? "New York" : "Paris"
         citySwipButton.selectedSegmentIndex == 0 ? weather.getWeather(city: 0) : weather.getWeather(city: 1)
+        citySwipButton.selectedSegmentIndex == 0 ? weather.getDate("America/New_York") : weather.getDate("Europe/Paris")
     }
     
     @IBAction func tappedUnitTemperatureButton(_ sender: UIButton) {
@@ -62,8 +62,12 @@ class WeatherController: UIViewController {
 // MARK: - Extension
 
 extension WeatherController: UpdateWeatherDelegate {
+    func updateDate(date: String) {
+        timeLabel.text = date
+    }
+    
     func updateWeatherImageView(icon: String) {
-        idWeather = icon
+        detectWeatherImage(imageView: weatherImageView, idWeather: icon)
     }
     
     func throwAlert(message: String) {
