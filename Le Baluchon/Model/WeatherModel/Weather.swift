@@ -109,7 +109,7 @@ final class WeatherModel {
         temp = response.list[city].main.temp
         tempMin = response.list[city].main.tempMin
         tempMax = response.list[city].main.tempMax
-        weatherDescription = response.list[city].weather[0].weatherDescription
+        weatherDescription = response.list[city].weather[0].description
         icon = response.list[city].weather[0].icon
     }
     

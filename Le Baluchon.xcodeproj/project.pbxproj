@@ -28,6 +28,11 @@
 		54B13D8328BE50C6001E1E92 /* FixerMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54B13D8228BE50C5001E1E92 /* FixerMapper.swift */; };
 		54B13D8528BE52F0001E1E92 /* UpdateCurrencyDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54B13D8428BE52F0001E1E92 /* UpdateCurrencyDelegate.swift */; };
 		54B13D8728BE6C2D001E1E92 /* UITextField+Custom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54B13D8628BE6C2D001E1E92 /* UITextField+Custom.swift */; };
+		54CEEA8C28CF2D8A00D5EBB1 /* TranslateMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54CEEA8B28CF2D8A00D5EBB1 /* TranslateMapper.swift */; };
+		54CEEA8E28CF2D9800D5EBB1 /* TranslateLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54CEEA8D28CF2D9800D5EBB1 /* TranslateLoader.swift */; };
+		54CEEA9028CF2DAB00D5EBB1 /* Translate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54CEEA8F28CF2DAB00D5EBB1 /* Translate.swift */; };
+		54CEEA9228CF2E6F00D5EBB1 /* TranslateController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54CEEA9128CF2E6F00D5EBB1 /* TranslateController.swift */; };
+		54CEEA9428CF2EC600D5EBB1 /* TranslateDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54CEEA9328CF2EC600D5EBB1 /* TranslateDelegate.swift */; };
 		54F40A5728ABC8720000CC3A /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54F40A5628ABC8720000CC3A /* NetworkError.swift */; };
 		54F40A5928ABCE510000CC3A /* UiViewController+Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54F40A5828ABCE510000CC3A /* UiViewController+Alert.swift */; };
 /* End PBXBuildFile section */
@@ -56,6 +61,11 @@
 		54B13D8228BE50C5001E1E92 /* FixerMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FixerMapper.swift; sourceTree = "<group>"; };
 		54B13D8428BE52F0001E1E92 /* UpdateCurrencyDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateCurrencyDelegate.swift; sourceTree = "<group>"; };
 		54B13D8628BE6C2D001E1E92 /* UITextField+Custom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Custom.swift"; sourceTree = "<group>"; };
+		54CEEA8B28CF2D8A00D5EBB1 /* TranslateMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslateMapper.swift; sourceTree = "<group>"; };
+		54CEEA8D28CF2D9800D5EBB1 /* TranslateLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslateLoader.swift; sourceTree = "<group>"; };
+		54CEEA8F28CF2DAB00D5EBB1 /* Translate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Translate.swift; sourceTree = "<group>"; };
+		54CEEA9128CF2E6F00D5EBB1 /* TranslateController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslateController.swift; sourceTree = "<group>"; };
+		54CEEA9328CF2EC600D5EBB1 /* TranslateDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslateDelegate.swift; sourceTree = "<group>"; };
 		54F40A5628ABC8720000CC3A /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		54F40A5828ABCE510000CC3A /* UiViewController+Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UiViewController+Alert.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -104,6 +114,7 @@
 			children = (
 				547ECD0A28AA7CCF00B86407 /* URLSessionHTTPClient.swift */,
 				54F40A5628ABC8720000CC3A /* NetworkError.swift */,
+				54CEEA8928CF2D4700D5EBB1 /* TranslateModel */,
 				54B13D8928BE6F3D001E1E92 /* ExchangeRateModel */,
 				5498842428C056A700EB2915 /* WeatherModel */,
 			);
@@ -114,6 +125,7 @@
 			isa = PBXGroup;
 			children = (
 				54F40A5828ABCE510000CC3A /* UiViewController+Alert.swift */,
+				54CEEA8A28CF2D6100D5EBB1 /* TranslateController */,
 				54B13D8828BE6F19001E1E92 /* ExchangeRateController */,
 				5498842728C0BBC700EB2915 /* WeatherController */,
 			);
@@ -180,6 +192,25 @@
 				547ECD0C28AA836600B86407 /* ExchangeRate.json */,
 			);
 			path = ExchangeRateModel;
+			sourceTree = "<group>";
+		};
+		54CEEA8928CF2D4700D5EBB1 /* TranslateModel */ = {
+			isa = PBXGroup;
+			children = (
+				54CEEA8B28CF2D8A00D5EBB1 /* TranslateMapper.swift */,
+				54CEEA8D28CF2D9800D5EBB1 /* TranslateLoader.swift */,
+				54CEEA8F28CF2DAB00D5EBB1 /* Translate.swift */,
+				54CEEA9328CF2EC600D5EBB1 /* TranslateDelegate.swift */,
+			);
+			path = TranslateModel;
+			sourceTree = "<group>";
+		};
+		54CEEA8A28CF2D6100D5EBB1 /* TranslateController */ = {
+			isa = PBXGroup;
+			children = (
+				54CEEA9128CF2E6F00D5EBB1 /* TranslateController.swift */,
+			);
+			path = TranslateController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -256,10 +287,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				547ECD0528AA71CC00B86407 /* ExchangeRate.swift in Sources */,
+				54CEEA8E28CF2D9800D5EBB1 /* TranslateLoader.swift in Sources */,
 				54B13D8728BE6C2D001E1E92 /* UITextField+Custom.swift in Sources */,
 				54B13D8528BE52F0001E1E92 /* UpdateCurrencyDelegate.swift in Sources */,
+				54CEEA9228CF2E6F00D5EBB1 /* TranslateController.swift in Sources */,
+				54CEEA8C28CF2D8A00D5EBB1 /* TranslateMapper.swift in Sources */,
 				54B13D8128BE5097001E1E92 /* FixerLoader.swift in Sources */,
 				5498843428C0D1C300EB2915 /* UpdateWeatherDelegate.swift in Sources */,
+				54CEEA9428CF2EC600D5EBB1 /* TranslateDelegate.swift in Sources */,
 				5498843628C0E36400EB2915 /* WeatherLoader.swift in Sources */,
 				5498842628C056CA00EB2915 /* WeatherStruct.swift in Sources */,
 				547ECD0B28AA7CCF00B86407 /* URLSessionHTTPClient.swift in Sources */,
@@ -270,6 +305,7 @@
 				54F40A5728ABC8720000CC3A /* NetworkError.swift in Sources */,
 				54F40A5928ABCE510000CC3A /* UiViewController+Alert.swift in Sources */,
 				5498843828C0E37C00EB2915 /* WeatherMapper.swift in Sources */,
+				54CEEA9028CF2DAB00D5EBB1 /* Translate.swift in Sources */,
 				547ECD0328AA71A100B86407 /* ExchangeRateController.swift in Sources */,
 				5498843A28C106A400EB2915 /* UIViewController+idWeather.swift in Sources */,
 				547ECCF128AA6F5600B86407 /* SceneDelegate.swift in Sources */,

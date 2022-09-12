@@ -25,7 +25,7 @@ final class ExchangeRateController: UIViewController {
         super.viewDidLoad()
         exchangeRate.delegate = self
         exchangeRate.getExchangeRate()
-        view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(dismissKeyboardAndConvert)))
+        view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard)))
     }
     
 
@@ -46,17 +46,15 @@ final class ExchangeRateController: UIViewController {
         
         guard let eurAmount = amountEURTextField.text else { return }
         exchangeRate.eurAmountText = eurAmount
+        exchangeRate.convertEURToUSD()
     }
     
     @IBAction func tappedAmountEURTextField(_ sender: UITextField) {
         amountEURTextField.text = ""
     }
     
-    @objc private func dismissKeyboardAndConvert() {
+    @objc private func dismissKeyboard() {
         amountEURTextField.resignFirstResponder()
-    }
-    @IBAction func editingDidEnd(_ sender: UITextField) {
-        exchangeRate.convertEURToUSD()
     }
 }
 

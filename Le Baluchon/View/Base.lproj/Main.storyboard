@@ -51,7 +51,6 @@
                                                 <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="30"/>
                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="decimalPad" keyboardAppearance="alert" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
                                                 <connections>
-                                                    <action selector="editingDidEnd:" destination="Cg0-r8-CUL" eventType="editingDidEnd" id="MrB-WC-677"/>
                                                     <action selector="tappedAmountEURTextField:" destination="Cg0-r8-CUL" eventType="editingDidBegin" id="OmX-NK-JLe"/>
                                                     <action selector="typedInEURTextField:" destination="Cg0-r8-CUL" eventType="editingChanged" id="ZJR-g1-skU"/>
                                                 </connections>
@@ -147,14 +146,72 @@
         <!--Translate-->
         <scene sceneID="t3U-dY-wv9">
             <objects>
-                <viewController id="otf-Pf-07C" sceneMemberID="viewController">
+                <viewController id="otf-Pf-07C" customClass="TranslateController" customModule="Le_Baluchon" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="QPr-J8-r3H">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="n8M-e0-gFr">
+                                <rect key="frame" x="25" y="84" width="364" height="35"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="French" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BLY-pt-2q4">
+                                        <rect key="frame" x="0.0" y="0.0" width="121.5" height="35"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="32"/>
+                                        <color key="textColor" red="1" green="0.64260193170000002" blue="0.23825358990000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrow.right" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="job-Ux-phc">
+                                        <rect key="frame" x="121.5" y="2.5" width="121" height="30"/>
+                                        <color key="tintColor" red="1" green="0.64260193170000002" blue="0.23825358990000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="English" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Upa-2h-fKg">
+                                        <rect key="frame" x="242.5" y="0.0" width="121.5" height="35"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="32"/>
+                                        <color key="textColor" red="1" green="0.64260193170000002" blue="0.23825358990000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="Jfk-dM-l00"/>
+                                </constraints>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="3LI-xi-45a">
+                                <rect key="frame" x="25" y="239" width="364" height="418"/>
+                                <subviews>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Salut, Monde !" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="XCe-TA-9eI">
+                                        <rect key="frame" x="0.0" y="0.0" width="364" height="205"/>
+                                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="textColor" red="1" green="0.64260193170000002" blue="0.23825358990000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences" keyboardAppearance="alert"/>
+                                    </textView>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Hello, World !" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="rhO-WJ-ESf">
+                                        <rect key="frame" x="0.0" y="213" width="364" height="205"/>
+                                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="textColor" red="1" green="0.64260193170000002" blue="0.23825358990000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                </subviews>
+                            </stackView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="DAl-Cm-9ql"/>
                         <color key="backgroundColor" systemColor="systemFillColor"/>
+                        <constraints>
+                            <constraint firstItem="3LI-xi-45a" firstAttribute="centerY" secondItem="QPr-J8-r3H" secondAttribute="centerY" id="5SJ-O6-3Mx"/>
+                            <constraint firstItem="n8M-e0-gFr" firstAttribute="centerX" secondItem="QPr-J8-r3H" secondAttribute="centerX" id="Hd0-yw-JVZ"/>
+                            <constraint firstItem="3LI-xi-45a" firstAttribute="leading" secondItem="DAl-Cm-9ql" secondAttribute="leading" constant="25" id="HhP-UP-yei"/>
+                            <constraint firstItem="n8M-e0-gFr" firstAttribute="leading" secondItem="DAl-Cm-9ql" secondAttribute="leading" constant="25" id="Jlc-pg-187"/>
+                            <constraint firstItem="3LI-xi-45a" firstAttribute="centerX" secondItem="QPr-J8-r3H" secondAttribute="centerX" id="f10-7O-lgy"/>
+                            <constraint firstItem="n8M-e0-gFr" firstAttribute="top" secondItem="DAl-Cm-9ql" secondAttribute="top" constant="40" id="swL-C1-a3y"/>
+                            <constraint firstItem="3LI-xi-45a" firstAttribute="top" secondItem="n8M-e0-gFr" secondAttribute="bottom" constant="120" id="vkQ-cb-xw8"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Translate" image="character.book.closed.fill" catalog="system" id="Yoz-Ya-88x"/>
+                    <connections>
+                        <outlet property="englishTextView" destination="rhO-WJ-ESf" id="dHm-PY-NxE"/>
+                        <outlet property="frenchTextView" destination="XCe-TA-9eI" id="Lvx-VI-5qU"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BTn-yw-wpH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -297,6 +354,7 @@
     <resources>
         <image name="1024px-United-states_flag_icon_round.svg" width="1024" height="1024"/>
         <image name="arrow.down" catalog="system" width="120" height="128"/>
+        <image name="arrow.right" catalog="system" width="128" height="98"/>
         <image name="character.book.closed.fill" catalog="system" width="115" height="128"/>
         <image name="dollarsign.circle.fill" catalog="system" width="128" height="121"/>
         <image name="flag-round-250" width="250" height="250"/>
