@@ -5,10 +5,11 @@
 //  Created by Enzo Gammino on 15/08/2022.
 //
 
-import Foundation
+import Foundation 
 
-final class URLSessionHTTPClient {
-    private let session: URLSession
+ class URLSessionHTTPClient {
+    static var shared = URLSessionHTTPClient()
+    private var session: URLSession
     
     init(session: URLSession = URLSession.init(configuration: .default)) {
         self.session = session

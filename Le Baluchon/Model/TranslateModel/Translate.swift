@@ -8,12 +8,9 @@ struct Translation: Decodable {
     let text: String
 }
 
-
 final class Translate {
     
     // MARK: - Properties
-    
-    
     
     var frenchText: String = ""
     private var englishText: String = "" {
@@ -25,12 +22,8 @@ final class Translate {
     let service = TranslateLoader()
     weak var delegate:  TranslateDelegate?
     
-
-    
   
     // MARK: - Functions
-    
-    
     
     func getEnglishTranslate(response: TranslateResponse) {
         englishText = response.translations[0].text

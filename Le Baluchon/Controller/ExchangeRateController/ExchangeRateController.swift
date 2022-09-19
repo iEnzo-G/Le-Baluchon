@@ -68,7 +68,7 @@ extension ExchangeRateController: UpdateCurrencyDelegate {
     func updateRateText(rate: String) {
         rateLabel.text = rate
     }
-    
+
     func throwAlert(message: String) {
         presentAlert(message: message)
     }
