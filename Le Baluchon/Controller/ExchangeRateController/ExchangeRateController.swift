@@ -19,12 +19,12 @@ final class ExchangeRateController: UIViewController {
     
     private let exchangeRate = ExchangeRate()
     
-    // MARK: - View life cycle
+    // MARK: - View life cycle) 
     
     override func viewDidLoad() {
         super.viewDidLoad()
         exchangeRate.delegate = self
-        exchangeRate.getExchangeRate()
+//        exchangeRate.getExchangeRate()
         view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard)))
     }
     

@@ -152,7 +152,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="n8M-e0-gFr">
-                                <rect key="frame" x="25" y="84" width="364" height="35"/>
+                                <rect key="frame" x="25" y="104" width="364" height="35"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="French" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BLY-pt-2q4">
                                         <rect key="frame" x="0.0" y="0.0" width="121.5" height="35"/>
@@ -175,42 +175,61 @@
                                     <constraint firstAttribute="height" constant="35" id="Jfk-dM-l00"/>
                                 </constraints>
                             </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="3LI-xi-45a">
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="3LI-xi-45a">
                                 <rect key="frame" x="25" y="239" width="364" height="418"/>
                                 <subviews>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Salut, Monde !" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="XCe-TA-9eI">
-                                        <rect key="frame" x="0.0" y="0.0" width="364" height="205"/>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Salut, Monde !" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="mpv-0M-OQC">
+                                        <rect key="frame" x="0.0" y="0.0" width="364" height="201.5"/>
                                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <color key="textColor" red="1" green="0.64260193170000002" blue="0.23825358990000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences" keyboardAppearance="alert"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Hello, World !" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="rhO-WJ-ESf">
-                                        <rect key="frame" x="0.0" y="213" width="364" height="205"/>
-                                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Hello, World !" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="b7j-Lj-Dv8">
+                                        <rect key="frame" x="0.0" y="216.5" width="364" height="201.5"/>
+                                        <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <color key="textColor" red="1" green="0.64260193170000002" blue="0.23825358990000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
                                 </subviews>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lPW-DG-5mH">
+                                <rect key="frame" x="80" y="677" width="254" height="50"/>
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="eMl-d8-e8H"/>
+                                </constraints>
+                                <color key="tintColor" red="1" green="0.64260193170000002" blue="0.23825358990000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="TRANSLATE">
+                                    <fontDescription key="titleFontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="30"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="tappedTranslateButton:" destination="otf-Pf-07C" eventType="touchUpInside" id="D5T-CQ-Zvq"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="DAl-Cm-9ql"/>
                         <color key="backgroundColor" systemColor="systemFillColor"/>
                         <constraints>
                             <constraint firstItem="3LI-xi-45a" firstAttribute="centerY" secondItem="QPr-J8-r3H" secondAttribute="centerY" id="5SJ-O6-3Mx"/>
+                            <constraint firstItem="lPW-DG-5mH" firstAttribute="top" secondItem="3LI-xi-45a" secondAttribute="bottom" constant="20" id="HXF-dC-Plb"/>
                             <constraint firstItem="n8M-e0-gFr" firstAttribute="centerX" secondItem="QPr-J8-r3H" secondAttribute="centerX" id="Hd0-yw-JVZ"/>
                             <constraint firstItem="3LI-xi-45a" firstAttribute="leading" secondItem="DAl-Cm-9ql" secondAttribute="leading" constant="25" id="HhP-UP-yei"/>
                             <constraint firstItem="n8M-e0-gFr" firstAttribute="leading" secondItem="DAl-Cm-9ql" secondAttribute="leading" constant="25" id="Jlc-pg-187"/>
+                            <constraint firstItem="lPW-DG-5mH" firstAttribute="leading" secondItem="DAl-Cm-9ql" secondAttribute="leading" constant="80" id="OTz-jh-thC"/>
                             <constraint firstItem="3LI-xi-45a" firstAttribute="centerX" secondItem="QPr-J8-r3H" secondAttribute="centerX" id="f10-7O-lgy"/>
-                            <constraint firstItem="n8M-e0-gFr" firstAttribute="top" secondItem="DAl-Cm-9ql" secondAttribute="top" constant="40" id="swL-C1-a3y"/>
-                            <constraint firstItem="3LI-xi-45a" firstAttribute="top" secondItem="n8M-e0-gFr" secondAttribute="bottom" constant="120" id="vkQ-cb-xw8"/>
+                            <constraint firstItem="lPW-DG-5mH" firstAttribute="centerX" secondItem="QPr-J8-r3H" secondAttribute="centerX" id="hRr-ai-Fpz"/>
+                            <constraint firstItem="n8M-e0-gFr" firstAttribute="top" secondItem="DAl-Cm-9ql" secondAttribute="top" constant="60" id="swL-C1-a3y"/>
+                            <constraint firstItem="3LI-xi-45a" firstAttribute="top" secondItem="n8M-e0-gFr" secondAttribute="bottom" constant="100" id="vkQ-cb-xw8"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Translate" image="character.book.closed.fill" catalog="system" id="Yoz-Ya-88x"/>
                     <connections>
-                        <outlet property="englishTextView" destination="rhO-WJ-ESf" id="dHm-PY-NxE"/>
-                        <outlet property="frenchTextView" destination="XCe-TA-9eI" id="Lvx-VI-5qU"/>
+                        <outlet property="englishTextView" destination="b7j-Lj-Dv8" id="vcL-XQ-ker"/>
+                        <outlet property="frenchTextView" destination="mpv-0M-OQC" id="lnP-qT-CoD"/>
+                        <outlet property="translateButton" destination="lPW-DG-5mH" id="89n-W5-Ecv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BTn-yw-wpH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

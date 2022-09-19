@@ -1,11 +1,12 @@
 
 import UIKit
 
-final class TranslateController: UIViewController {
+class TranslateController: UIViewController {
     
     // MARK: - Outlets
-    @IBOutlet weak var frenchTextView: UITextView!
-    @IBOutlet weak var englishTextView: UITextView!
+    @IBOutlet var frenchTextView: UITextView!
+    @IBOutlet var englishTextView: UITextView!
+    @IBOutlet var translateButton: UIButton!
     
     // MARK: - Properties
     
@@ -23,10 +24,12 @@ final class TranslateController: UIViewController {
     
     @objc private func dismissKeyboardAndTranslate() {
         frenchTextView.resignFirstResponder()
-        translate.frenchText = frenchTextView.text!
-//        translate.getTranslate()
     }
     
+    @IBAction func tappedTranslateButton(_ sender: UIButton) {
+        translate.frenchText = frenchTextView.text!
+        translate.getTranslate()
+    }
     
 }
 

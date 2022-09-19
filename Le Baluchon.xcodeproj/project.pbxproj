@@ -28,6 +28,7 @@
 		54B13D8328BE50C6001E1E92 /* FixerMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54B13D8228BE50C5001E1E92 /* FixerMapper.swift */; };
 		54B13D8528BE52F0001E1E92 /* UpdateCurrencyDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54B13D8428BE52F0001E1E92 /* UpdateCurrencyDelegate.swift */; };
 		54B13D8728BE6C2D001E1E92 /* UITextField+Custom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54B13D8628BE6C2D001E1E92 /* UITextField+Custom.swift */; };
+		54B7C70228D778D40005B3DE /* TranslateSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54B7C70128D778D40005B3DE /* TranslateSession.swift */; };
 		54CEEA8C28CF2D8A00D5EBB1 /* TranslateMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54CEEA8B28CF2D8A00D5EBB1 /* TranslateMapper.swift */; };
 		54CEEA8E28CF2D9800D5EBB1 /* TranslateLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54CEEA8D28CF2D9800D5EBB1 /* TranslateLoader.swift */; };
 		54CEEA9028CF2DAB00D5EBB1 /* Translate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54CEEA8F28CF2DAB00D5EBB1 /* Translate.swift */; };
@@ -61,6 +62,7 @@
 		54B13D8228BE50C5001E1E92 /* FixerMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FixerMapper.swift; sourceTree = "<group>"; };
 		54B13D8428BE52F0001E1E92 /* UpdateCurrencyDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateCurrencyDelegate.swift; sourceTree = "<group>"; };
 		54B13D8628BE6C2D001E1E92 /* UITextField+Custom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Custom.swift"; sourceTree = "<group>"; };
+		54B7C70128D778D40005B3DE /* TranslateSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslateSession.swift; sourceTree = "<group>"; };
 		54CEEA8B28CF2D8A00D5EBB1 /* TranslateMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslateMapper.swift; sourceTree = "<group>"; };
 		54CEEA8D28CF2D9800D5EBB1 /* TranslateLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslateLoader.swift; sourceTree = "<group>"; };
 		54CEEA8F28CF2DAB00D5EBB1 /* Translate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Translate.swift; sourceTree = "<group>"; };
@@ -104,6 +106,8 @@
 				547ECD0928AA726700B86407 /* Supporting Files */,
 				547ECD0728AA71DA00B86407 /* Controller */,
 				547ECD0628AA71D100B86407 /* Model */,
+				547ECD0C28AA836600B86407 /* ExchangeRate.json */,
+				5498842A28C0C89800EB2915 /* Weather.json */,
 				547ECD0828AA71F200B86407 /* View */,
 			);
 			path = "Le Baluchon";
@@ -159,7 +163,6 @@
 				5498843728C0E37C00EB2915 /* WeatherMapper.swift */,
 				5498842528C056CA00EB2915 /* WeatherStruct.swift */,
 				5498843328C0D1C300EB2915 /* UpdateWeatherDelegate.swift */,
-				5498842A28C0C89800EB2915 /* Weather.json */,
 			);
 			path = WeatherModel;
 			sourceTree = "<group>";
@@ -189,7 +192,6 @@
 				54B13D8028BE5097001E1E92 /* FixerLoader.swift */,
 				547ECD0428AA71CC00B86407 /* ExchangeRate.swift */,
 				54B13D8428BE52F0001E1E92 /* UpdateCurrencyDelegate.swift */,
-				547ECD0C28AA836600B86407 /* ExchangeRate.json */,
 			);
 			path = ExchangeRateModel;
 			sourceTree = "<group>";
@@ -200,6 +202,7 @@
 				54CEEA8B28CF2D8A00D5EBB1 /* TranslateMapper.swift */,
 				54CEEA8D28CF2D9800D5EBB1 /* TranslateLoader.swift */,
 				54CEEA8F28CF2DAB00D5EBB1 /* Translate.swift */,
+				54B7C70128D778D40005B3DE /* TranslateSession.swift */,
 				54CEEA9328CF2EC600D5EBB1 /* TranslateDelegate.swift */,
 			);
 			path = TranslateModel;
@@ -289,6 +292,7 @@
 				547ECD0528AA71CC00B86407 /* ExchangeRate.swift in Sources */,
 				54CEEA8E28CF2D9800D5EBB1 /* TranslateLoader.swift in Sources */,
 				54B13D8728BE6C2D001E1E92 /* UITextField+Custom.swift in Sources */,
+				54B7C70228D778D40005B3DE /* TranslateSession.swift in Sources */,
 				54B13D8528BE52F0001E1E92 /* UpdateCurrencyDelegate.swift in Sources */,
 				54CEEA9228CF2E6F00D5EBB1 /* TranslateController.swift in Sources */,
 				54CEEA8C28CF2D8A00D5EBB1 /* TranslateMapper.swift in Sources */,
