@@ -38,14 +38,14 @@ final class WeatherController: UIViewController {
         weather.getDate("America/New_York")
         weather.getWeather(cityIndex: 0)
         
-//        loader.load(cities: [5128581, 2968815]) { [weak self] result in
-//            switch result {
-//            case let .success(response):
-//                print(response)
-//            case let .failure(error):
-//                print(error)
-//            }
-//        }
+        loader.load(cities: [5128581, 2968815]) { [weak self] result in
+            switch result {
+            case let .success(response):
+                print(response)
+            case let .failure(error):
+                print(error)
+            }
+        }
     }
     
     // MARK: - Actions

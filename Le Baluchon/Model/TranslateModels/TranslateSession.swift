@@ -14,13 +14,7 @@ class TranslateSession {
         self.session = session
     }
     
-    func get(frenchText: String, completion: @escaping (Result<(Data, HTTPURLResponse), Error>) -> Void) {
-        var request = URLRequest(url: URL(string: "https://api-free.deepl.com/v2/translate")!)
-        request.httpMethod = "POST"
-        let body = "text=" + frenchText + "&source_lang=FR&target_lang=EN"
-        request.httpBody = body.data(using: .utf8)
-        request.allHTTPHeaderFields = ["Authorization" : "DeepL-Auth-Key f419ed1c-47cd-33ac-fd74-cbff06750a2f:fx"]
-        request.url
+    func get(request: URLRequest, completion: @escaping (Result<(Data, HTTPURLResponse), Error>) -> Void) {
         session.dataTask(with: request) { data, response, error in
             DispatchQueue.main.async {
                 guard let data = data, error == nil else {

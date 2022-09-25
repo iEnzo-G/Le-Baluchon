@@ -3,16 +3,16 @@ import Foundation
 
 final class TranslateLoader {
     
-    let client: URLSessionHTTPClient
+    let client: TranslateSession
     
-    init(client: URLSessionHTTPClient = .init()) {
+    init(client: TranslateSession = .init()) {
         self.client = client
     }
     
     func load(text: String, completion: @escaping (Result<TranslateResponse, Error>) -> Void) {
         let baseURL = URL(string: "https://api-free.deepl.com/v2/translate")!
-        let url = TranslateEndpoint.post(text).url(baseURL: baseURL)
-        client.get (url: url) { [weak self] result in
+        let urlRequest = TranslateEndpoint.post(text).urlRequest(baseURL: baseURL)
+        client.get (request: urlRequest) { [weak self] result in
             guard self != nil else { return }
             switch result {
             case let .success((data, response)):

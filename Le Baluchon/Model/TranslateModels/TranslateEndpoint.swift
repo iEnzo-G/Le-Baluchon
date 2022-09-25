@@ -10,7 +10,7 @@ import Foundation
 enum TranslateEndpoint {
     case post(String)
     
-    func url(baseURL: URL) -> URL {
+    func urlRequest(baseURL: URL) -> URLRequest {
         switch self {
         case let .post(text):
             var request = URLRequest(url: baseURL)
@@ -19,8 +19,7 @@ enum TranslateEndpoint {
             request.httpBody = body.data(using: .utf8)
             request.allHTTPHeaderFields = ["Authorization" : "DeepL-Auth-Key f419ed1c-47cd-33ac-fd74-cbff06750a2f:fx"]
             
-            return request.url!
-
+            return request
         }
     }
 }

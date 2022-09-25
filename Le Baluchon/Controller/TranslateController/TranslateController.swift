@@ -26,6 +26,10 @@ class TranslateController: UIViewController {
     }
     
     @IBAction func tappedTranslateButton(_ sender: UIButton) {
+        guard frenchTextView.text != "" else {
+            presentAlert(message: "Please write something before translate")
+            return
+        }
         loader.load(text: frenchTextView.text!) { [weak self] result in
             switch result {
             case let .success(text):
