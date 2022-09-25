@@ -8,8 +8,7 @@
 import Foundation 
 
  class URLSessionHTTPClient {
-    static var shared = URLSessionHTTPClient()
-    private var session: URLSession
+    private let session: URLSession
     
     init(session: URLSession = URLSession.init(configuration: .default)) {
         self.session = session

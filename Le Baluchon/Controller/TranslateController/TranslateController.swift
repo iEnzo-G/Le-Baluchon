@@ -10,13 +10,12 @@ class TranslateController: UIViewController {
     
     // MARK: - Properties
     
-    private let translate = Translate()
+    private let loader = TranslateLoader()
     
     // MARK: - View life cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        translate.delegate = self
         view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(dismissKeyboardAndTranslate)))
     }
     
@@ -27,23 +26,15 @@ class TranslateController: UIViewController {
     }
     
     @IBAction func tappedTranslateButton(_ sender: UIButton) {
-        translate.frenchText = frenchTextView.text!
-        translate.getTranslate()
+        loader.load(text: frenchTextView.text!) { [weak self] result in
+            switch result {
+            case let .success(text):
+                self?.englishTextView.text = text.translations[0].text
+            case let .failure(error):
+                print(error.localizedDescription)
+                self?.presentAlert(message: "Something happened wrong from the API. Please try later.")
+            }
+        }
     }
     
 }
-
-// MARK: - Extension
-
-extension TranslateController: TranslateDelegate {
-    func updateEnglishTextField(text: String) {
-        englishTextView.text = text
-    }
-    
-    func throwAlert(message: String) {
-        presentAlert(message: message)
-    }
-    
-    
-}
-

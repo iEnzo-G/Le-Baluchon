@@ -8,6 +8,7 @@
 
 import UIKit
 
+// Custom Field forbid user to do some interactions on the text field to prevent some errors.
 final class CustomUITextField: UITextField {
     override func canPerformAction(_ action: Selector, withSender sender: Any?) -> Bool {
         if action == #selector((UIResponderStandardEditActions.select(_:))) {

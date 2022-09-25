@@ -28,22 +28,31 @@ final class WeatherController: UIViewController {
     
     private let weather = WeatherModel()
     private var idWeather: String = ""
+    private let loader = WeatherLoader()
     
     // MARK: - View life cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        weather.delegate = self
         citySwipButton.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.white], for: .normal)
         weather.getDate("America/New_York")
-        weather.getWeather(city: 0)
+        weather.getWeather(cityIndex: 0)
+        
+//        loader.load(cities: [5128581, 2968815]) { [weak self] result in
+//            switch result {
+//            case let .success(response):
+//                print(response)
+//            case let .failure(error):
+//                print(error)
+//            }
+//        }
     }
     
     // MARK: - Actions
     
     @IBAction func tappedCitySwipButton(_ sender: UISegmentedControl) {
         cityNameLabel.text = citySwipButton.selectedSegmentIndex == 0 ? "New York" : "Paris"
-        citySwipButton.selectedSegmentIndex == 0 ? weather.getWeather(city: 0) : weather.getWeather(city: 1)
+        citySwipButton.selectedSegmentIndex == 0 ? weather.getWeather(cityIndex: 0) : weather.getWeather(cityIndex: 1)
         citySwipButton.selectedSegmentIndex == 0 ? weather.getDate("America/New_York") : weather.getDate("Europe/Paris")
     }
     
@@ -55,48 +64,6 @@ final class WeatherController: UIViewController {
             unitTemperatureButton.setTitle("°C", for: .normal)
             weather.url = weather.changeSystem(systeme: "metric")
         }
-        citySwipButton.selectedSegmentIndex == 0 ? weather.getWeather(city: 0) : weather.getWeather(city: 1)
+        citySwipButton.selectedSegmentIndex == 0 ? weather.getWeather(cityIndex: 0) : weather.getWeather(cityIndex: 1)
     }
-}
-
-// MARK: - Extension
-
-extension WeatherController: UpdateWeatherDelegate {
-    func updateDate(date: String) {
-        timeLabel.text = date
-    }
-    
-    func updateWeatherImageView(icon: String) {
-        detectWeatherImage(imageView: weatherImageView, idWeather: icon)
-    }
-    
-    func throwAlert(message: String) {
-        presentAlert(message: message)
-    }
-    
-    func updateHumidityLabel(humidity: String) {
-        humidityLabel.text = humidity
-    }
-    
-    func updateWindLabel(wind: String) {
-        windLabel.text = wind
-    }
-    
-    func updateTempLabel(temp: String) {
-        tempLabel.text = temp
-    }
-    
-    func updateTempMinLabel(tempMin: String) {
-        tempMinLabel.text = tempMin
-    }
-    
-    func updateTempMaxLabel(tempMax: String) {
-        tempMaxLabel.text = tempMax
-    }
-    
-    func updateWeatherDescriptionLabel(weatherDescription: String) {
-        weatherDescriptionLabel.text = weatherDescription
-    }
-    
-    
 }

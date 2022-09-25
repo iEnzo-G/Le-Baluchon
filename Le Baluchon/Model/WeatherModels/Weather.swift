@@ -11,7 +11,6 @@ import Foundation
 final class WeatherModel {
     
     //MARK: - Properties
-    weak var delegate: UpdateWeatherDelegate?
     private let formatter: NumberFormatter = {
         let formatter = NumberFormatter()
         formatter.numberStyle = .none
@@ -28,48 +27,48 @@ final class WeatherModel {
     
     private var humidity: Int = 47 {
         didSet {
-            guard let humidityFormatter = formatter.string(for: humidity) else { return }
-            delegate?.updateHumidityLabel(humidity: "Humidity: " + humidityFormatter + " %")
+//            guard let humidityFormatter = formatter.string(for: humidity) else { return }
+//            delegate?.updateHumidityLabel(humidity: "Humidity: " + humidityFormatter + " %")
         }
     }
     private var wind: Double = 2.0 {
         didSet {
-            guard let windFormatter = formatter.string(for: wind) else { return }
-            delegate?.updateWindLabel(wind: "Wind: " + windFormatter + unitSpeed)
+//            guard let windFormatter = formatter.string(for: wind) else { return }
+//            delegate?.updateWindLabel(wind: "Wind: " + windFormatter + unitSpeed)
         }
     }
     private var temp: Double = 68.0 {
         didSet {
-            guard let tempFormatter = formatter.string(for: temp) else { return }
-            delegate?.updateTempLabel(temp: tempFormatter)
+//            guard let tempFormatter = formatter.string(for: temp) else { return }
+//            delegate?.updateTempLabel(temp: tempFormatter)
         }
     }
     private var tempMin: Double = 68.0 {
         didSet {
-            guard let tempMinFormatter = formatter.string(for: tempMin) else { return }
-            delegate?.updateTempMinLabel(tempMin: "Temp min: " + tempMinFormatter + unitTemp)
+//            guard let tempMinFormatter = formatter.string(for: tempMin) else { return }
+//            delegate?.updateTempMinLabel(tempMin: "Temp min: " + tempMinFormatter + unitTemp)
         }
     }
     private var tempMax: Double = 70.0 {
         didSet {
-            guard let tempMaxFormatter = formatter.string(for: tempMax) else { return }
-            delegate?.updateTempMaxLabel(tempMax: "Temp max: " + tempMaxFormatter + unitTemp)
+//            guard let tempMaxFormatter = formatter.string(for: tempMax) else { return }
+//            delegate?.updateTempMaxLabel(tempMax: "Temp max: " + tempMaxFormatter + unitTemp)
         }
     }
     private var weatherDescription: String = "Clear sky" {
         didSet {
-            delegate?.updateWeatherDescriptionLabel(weatherDescription: weatherDescription.capitalized)
+//            delegate?.updateWeatherDescriptionLabel(weatherDescription: weatherDescription.capitalized)
         }
     }
     private var icon: String = "01d" {
         didSet {
-            delegate?.updateWeatherImageView(icon: icon)
+//            delegate?.updateWeatherImageView(icon: icon)
         }
     }
     
-    private var date: String = "Monday, Sep 5 - 09:23"{
+    private var date: String = "Monday, Sep 5 - 09:23" {
         didSet {
-            delegate?.updateDate(date: date.capitalized)
+//            delegate?.updateDate(date: date.capitalized)
         }
     }
     
@@ -91,26 +90,26 @@ final class WeatherModel {
         return url
     }
     
-    func getWeather(city: Int) {
-        service.load(url: url) { [weak self] result in
-            switch result {
-            case let .success(data):
-                print(data)
-                self?.getInfo(city: city, response: data)
-            case let .failure(error):
-                print(error.localizedDescription)
-            }
-        }
+    func getWeather(cityIndex: Int) {
+//        service.load(url: url) { [weak self] result in
+//            switch result {
+//            case let .success(data):
+//                print(data) 
+//                self?.getInfo(city: cityIndex, response: data)
+//            case let .failure(error):
+//                print(error.localizedDescription)
+//            }
+//        }
     }
     
-    func getInfo(city: Int, response: WeatherResponse) {
-        wind = response.list[city].wind.speed
-        humidity = response.list[city].main.humidity
-        temp = response.list[city].main.temp
-        tempMin = response.list[city].main.tempMin
-        tempMax = response.list[city].main.tempMax
-        weatherDescription = response.list[city].weather[0].description
-        icon = response.list[city].weather[0].icon
+    func getInfo(cityIndex: Int, response: WeatherResponse) {
+        wind = response.list[cityIndex].wind.speed
+        humidity = response.list[cityIndex].main.humidity
+        temp = response.list[cityIndex].main.temp
+        tempMin = response.list[cityIndex].main.tempMin
+        tempMax = response.list[cityIndex].main.tempMax
+        weatherDescription = response.list[cityIndex].weather[0].description
+        icon = response.list[cityIndex].weather[0].icon
     }
     
     func getDate(_ timezone: String) {

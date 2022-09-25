@@ -1,13 +1,13 @@
 //
-//  WeatherLoader.swift
+//  ExchangeRateLoader.swift
 //  Le Baluchon
 //
-//  Created by Enzo Gammino on 01/09/2022.
+//  Created by Enzo Gammino on 29/08/2022.
 //
 
 import Foundation
 
-final class WeatherLoader {
+final class FixerLoader {
     
     let client: URLSessionHTTPClient
     
@@ -15,13 +15,15 @@ final class WeatherLoader {
         self.client = client
     }
     
-    func load(url: URL, completion: @escaping (Result<WeatherResponse, Error>) -> Void) {
+    func load(to: String, from: String, completion: @escaping (Result<FixerResponse, Error>) -> Void) {
+        let baseURL = URL(string: "https://api.apilayer.com/fixer")!
+        let url = FixerEndpoint.get(to: to, from: from).url(baseURL: baseURL)
         client.get(url: url) { [weak self] result in
             guard self != nil else { return }
             switch result {
             case let .success((data, response)):
                 do {
-                    let result = try WeatherMapper.map(data: data, response: response)
+                    let result = try FixerMapper.map(data: data, response: response)
                     completion(.success(result))
                     return
                 }  catch {
