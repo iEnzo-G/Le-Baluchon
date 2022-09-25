@@ -15,9 +15,9 @@ final class WeatherLoader {
         self.client = client
     }
     
-    func load(cities: [Int], completion: @escaping (Result<WeatherResponse, Error>) -> Void) {
+    func load(cities: [Int], units: String, completion: @escaping (Result<WeatherResponse, Error>) -> Void) {
         let baseURL = URL(string: "http://api.openweathermap.org/data/2.5")!
-        let url = WeatherEndpoint.get(cities).url(baseURL: baseURL)
+        let url = WeatherEndpoint.get(cities, units).url(baseURL: baseURL)
         client.get(url: url) { [weak self] result in
             guard self != nil else { return }
             switch result {
