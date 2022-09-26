@@ -10,7 +10,7 @@ import Foundation
  class URLSessionHTTPClient {
     private let session: URLSession
     
-    init(session: URLSession = URLSession.init(configuration: .default)) {
+    init(session: URLSession = URLSession(configuration: .default)) {
         self.session = session
     }
     

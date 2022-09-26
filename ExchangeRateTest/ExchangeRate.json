@@ -1,7 +1,9 @@
-"success": true,
-"timestamp": 1661766964,
-"base": "EUR",
-"date": "2022-08-29",
-"rates": {
+{
+    "success": true,
+    "timestamp": 1661766964,
+    "base": "EUR",
+    "date": "2022-08-29",
+    "rates": {
         "USD": 0.995942
+    }
 }
