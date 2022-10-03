@@ -9,16 +9,16 @@ import Foundation
 
 final class WeatherLoader {
     
-    let client: HTTPClient
+    let client: URLSessionHTTPClient
     
-    init(client: HTTPClient = URLSessionHTTPClient()) {
+    init(client: URLSessionHTTPClient = .init()) {
         self.client = client
     }
     
     func load(cities: [Int], units: String, completion: @escaping (Result<WeatherResponse, Error>) -> Void) {
         let baseURL = URL(string: "http://api.openweathermap.org/data/2.5")!
         let url = WeatherEndpoint.get(cities, units).url(baseURL: baseURL)
-        client.get(url: URLRequest(url: url)) { [weak self] result in
+        client.get(url: url) { [weak self] result in
             guard self != nil else { return }
             switch result {
             case let .success((data, response)):

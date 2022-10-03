@@ -5,20 +5,16 @@
 //  Created by Enzo Gammino on 15/08/2022.
 //
 
-import Foundation
+import Foundation 
 
-protocol HTTPClient {
-    func get(url: URLRequest, completion: @escaping (Result<(Data, HTTPURLResponse), Error>) -> Void)
-}
-
-class URLSessionHTTPClient: HTTPClient {
+ class URLSessionHTTPClient {
     private let session: URLSession
     
     init(session: URLSession = URLSession(configuration: .default)) {
         self.session = session
     }
     
-    func get(url: URLRequest, completion: @escaping (Result<(Data, HTTPURLResponse), Error>) -> Void) {
+    func get(url: URL, completion: @escaping (Result<(Data, HTTPURLResponse), Error>) -> Void) {
         session.dataTask(with: url) { data, response, error in
             DispatchQueue.main.async {
                 guard let data = data, error == nil else {

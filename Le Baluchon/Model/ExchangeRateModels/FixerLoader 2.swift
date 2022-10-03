@@ -9,16 +9,16 @@ import Foundation
 
 final class FixerLoader {
     
-    let client: HTTPClient
+    let client: URLSessionHTTPClient
     
-    init(client: HTTPClient = URLSessionHTTPClient()) {
+    init(client: URLSessionHTTPClient = .init()) {
         self.client = client
     }
     
     func load(to: String, from: String, completion: @escaping (Result<FixerResponse, Error>) -> Void) {
         let baseURL = URL(string: "https://api.apilayer.com/fixer")!
         let url = FixerEndpoint.get(to: to, from: from).url(baseURL: baseURL)
-        client.get(url: URLRequest(url: url)) { [weak self] result in
+        client.get(url: url) { [weak self] result in
             guard self != nil else { return }
             switch result {
             case let .success((data, response)):
