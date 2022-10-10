@@ -20,17 +20,15 @@ class URLSessionHTTPClient: HTTPClient {
     
     func get(url: URLRequest, completion: @escaping (Result<(Data, HTTPURLResponse), Error>) -> Void) {
         session.dataTask(with: url) { data, response, error in
-            DispatchQueue.main.async {
-                guard let data = data, error == nil else {
-                    completion(.failure(NetworkError.noData))
-                    return
-                }
-                guard let response = response as? HTTPURLResponse else {
-                    completion(.failure(NetworkError.invalidResponse))
-                    return
-                }
-                completion(.success((data, response)))
+            guard let data = data, error == nil else {
+                completion(.failure(NetworkError.noData))
+                return
             }
+            guard let response = response as? HTTPURLResponse else {
+                completion(.failure(NetworkError.invalidResponse))
+                return
+            }
+            completion(.success((data, response)))
         }.resume()
     }
 }

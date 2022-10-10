@@ -8,24 +8,12 @@ class FixerLoaderTest: XCTestCase {
     // MARK: - Tests
     
     func test_GivenData_WhenSendRequest() {
-
-        let configuration = URLSessionConfiguration.ephemeral
-        configuration.protocolClasses = [URLProtocolStub.self]
-        let client = URLSessionHTTPClient(session: .init(configuration: configuration))
-
-        var data: Data {
-            let bundle = Bundle(for: FixerLoaderTest.self)
-            let url = bundle.url(forResource: "ExchangeRate", withExtension: "json")
-            let ExchangeData = try! Data(contentsOf: url!)
-            return ExchangeData
-        }
-
-        URLProtocolStub.stub(data: data, response: HTTPURLResponse(url: URL(string: "www.a-url.com")!, statusCode: 200, httpVersion: .none, headerFields: .none), error: .none)
-
         let exp = expectation(description: "Waiting for request...")
-
-        let loader = FixerLoader(client: client)
-        loader.load(to: "USD", from: "EUR") { result in
+        let data = FixerData().data
+        let client = ClientStub(result: .success((data, HTTPURLResponse(url: URL(string: "https://www.a-url.com")!, statusCode: 200, httpVersion: .none, headerFields: .none)!)))
+        let sut = FixerLoader(client: client)
+        
+        sut.load(to: "USD", from: "EUR") { result in
             switch result {
             case let .success(get):
                 XCTAssertEqual(get.success, true)
@@ -40,49 +28,35 @@ class FixerLoaderTest: XCTestCase {
     }
     
     func test_GivenError_WhenGetInvalidData() {
-        let configuration = URLSessionConfiguration.ephemeral
-        configuration.protocolClasses = [URLProtocolStub.self]
-        let client = URLSessionHTTPClient(session: .init(configuration: configuration))
-        let loader = FixerLoader(client: client)
-        
-        let data = "erreur".data(using: .utf8)
-        
-        URLProtocolStub.stub(data: data, response: HTTPURLResponse(url: URL(string: "www.a-url.com")!, statusCode: 200, httpVersion: .none, headerFields: .none), error: .none)
-        
+        let error = NetworkError.undecodableData
+        let client = ClientStub(result: .failure(error))
+        let sut = FixerLoader(client: client)
         let exp = expectation(description: "Waiting for request...")
         
-        loader.load(to: "USD", from: "EUR") { result in
+        sut.load(to: "USD", from: "EUR") { result in
             switch result {
             case .success:
                 XCTFail("Test is not valid.")
             case let .failure(error):
                 XCTAssertEqual(error as! NetworkError, NetworkError.undecodableData)
-                
             }
             exp.fulfill()
         }
         wait(for: [exp], timeout: 1.0)
     }
     
-    func test_GivenError_WhenGetAnErrorFromAPI() {
-        let configuration = URLSessionConfiguration.ephemeral
-        configuration.protocolClasses = [URLProtocolStub.self]
-        let client = URLSessionHTTPClient(session: .init(configuration: configuration))
-        let loader = FixerLoader(client: client)
-        
+    func test_GivenUndecodableData_WhenTryJSONDecoder_ThenGetNetworkError() {
         let data = Data()
-        
-        URLProtocolStub.stub(data: data, response: HTTPURLResponse(url: URL(string: "www.a-url.com")!, statusCode: 200, httpVersion: .none, headerFields: .none), error: NetworkError.undecodableData)
-        
+        let client = ClientStub(result: .success((data, HTTPURLResponse(url: URL(string: "https://www.a-url.com")!, statusCode: 200, httpVersion: .none, headerFields: .none)!)))
+        let sut = FixerLoader(client: client)
         let exp = expectation(description: "Waiting for request...")
         
-        loader.load(to: "USD", from: "EUR") { result in
+        sut.load(to: "USD", from: "EUR") { result in
             switch result {
             case .success:
                 XCTFail("Test is not valid.")
             case let .failure(error):
                 XCTAssertEqual(error as! NetworkError, NetworkError.undecodableData)
-                
             }
             exp.fulfill()
         }
@@ -91,22 +65,13 @@ class FixerLoaderTest: XCTestCase {
     
     // MARK: - Helpers
     
-//    func testBlabla() {
-//        let client = ClientStub(result: .failure(NSError(domain: "an error", code: 0)))
-//        let loader = FixerLoader(client: client)
-//    }
-    
-    class ClientStub: HTTPClient {
-        
-        let result: Result<(Data, HTTPURLResponse), Error>
-        
-        init(result: Result<(Data, HTTPURLResponse), Error>) {
-            self.result = result
-        }
-        
-        func get(url: URLRequest, completion: @escaping (Result<(Data, HTTPURLResponse), Error>) -> Void) {
-            completion(result)
+    class FixerData {
+        var data: Data {
+            let bundle = Bundle(for: FixerLoaderTest.self)
+            let url = bundle.url(forResource: "ExchangeRate", withExtension: "json")
+            let ExchangeData = try! Data(contentsOf: url!)
+            return ExchangeData
         }
     }
-    
 }
+

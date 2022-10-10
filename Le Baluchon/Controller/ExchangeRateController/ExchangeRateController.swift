@@ -31,12 +31,12 @@ final class ExchangeRateController: UIViewController {
         return formatter
     }()
     
-    // MARK: - View life cycle) 
+    // MARK: - View life cycle)
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard)))
-//        loadExchangeRate()
+        loadExchangeRate()
     }
     
     // MARK: - Actions
@@ -48,13 +48,15 @@ final class ExchangeRateController: UIViewController {
     
     private func loadExchangeRate() {
         loader.load(to: finalCurrency, from: startingCurrency) { [weak self] result in
-            switch result {
-            case let .success(rate):
-                guard let updatedRate = rate.rates[self!.finalCurrency] else { return }
-                self?.rate = updatedRate
-                self?.updateRate(updateRate: updatedRate)
-            case .failure(_):
-                self?.presentAlert(message: "Something happened wrong from the API. Please try later.")
+            DispatchQueue.main.async {
+                switch result {
+                case let .success(rate):
+                    guard let updatedRate = rate.rates[self!.finalCurrency] else { return }
+                    self?.rate = updatedRate
+                    self?.updateRate(updateRate: updatedRate)
+                case .failure(_):
+                    self?.presentAlert(message: "Something happened wrong from the API. Please try later.")
+                }
             }
         }
     }

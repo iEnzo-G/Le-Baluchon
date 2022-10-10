@@ -101,15 +101,6 @@ final class WeatherController: UIViewController {
         citySwipButton.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.white], for: .normal)
         getDate("America/New_York")
         getWeather(cityIndex: 0)
-        
-        loader.load(cities: [5128581, 2968815], units: units) { [weak self] result in
-            switch result {
-            case let .success(response):
-                self?.getInfo(cityIndex: 0, response: response)
-            case .failure(_):
-                self?.presentAlert(message: "Something happened wrong from the API. Please try later.")
-            }
-        }
     }
     
     // MARK: - Actions
@@ -134,25 +125,26 @@ final class WeatherController: UIViewController {
     }
     
     
-    func getDate(_ timezone: String) {
+    private func getDate(_ timezone: String) {
         let getDate = Date()
         dateFormatter.timeZone = TimeZone(identifier: timezone)
         date = dateFormatter.string(from: getDate)
     }
     
-    func getWeather(cityIndex: Int) {
+    private func getWeather(cityIndex: Int) {
         loader.load(cities: [5128581, 2968815], units: units) { [weak self] result in
-            switch result {
-            case let .success(data):
-                print(data)
-                self?.getInfo(cityIndex: cityIndex, response: data)
-            case let .failure(error):
-                print(error.localizedDescription)
+            DispatchQueue.main.async {
+                switch result {
+                case let .success(data):
+                    self?.getInfo(cityIndex: cityIndex, response: data)
+                case .failure(_):
+                    self?.presentAlert(message: "Something happened wrong from the API. Please try later.")
+                }
             }
         }
     }
     
-    func getInfo(cityIndex: Int, response: WeatherResponse) {
+    private func getInfo(cityIndex: Int, response: WeatherItem) {
         wind = response.list[cityIndex].wind.speed
         humidity = response.list[cityIndex].main.humidity
         temp = response.list[cityIndex].main.temp

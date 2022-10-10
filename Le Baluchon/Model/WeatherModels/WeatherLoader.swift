@@ -15,7 +15,7 @@ final class WeatherLoader {
         self.client = client
     }
     
-    func load(cities: [Int], units: String, completion: @escaping (Result<WeatherResponse, Error>) -> Void) {
+    func load(cities: [Int], units: String, completion: @escaping (Result<WeatherItem, Error>) -> Void) {
         let baseURL = URL(string: "http://api.openweathermap.org/data/2.5")!
         let url = WeatherEndpoint.get(cities, units).url(baseURL: baseURL)
         client.get(url: URLRequest(url: url)) { [weak self] result in
@@ -31,7 +31,7 @@ final class WeatherLoader {
                     return
                 }
             case let .failure(error):
-                print(error.localizedDescription)
+                completion(.failure(error))
                 return
             }
         }

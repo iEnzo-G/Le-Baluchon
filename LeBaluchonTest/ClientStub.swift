@@ -1,5 +1,6 @@
 
-import Foundation
+import XCTest
+@testable import Le_Baluchon
 
 class ClientStub: HTTPClient {
     

@@ -39,26 +39,6 @@
                ReferencedContainer = "container:Le Baluchon.xcodeproj">
             </BuildableReference>
          </TestableReference>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "54B7C71628D877550005B3DE"
-               BuildableName = "WeatherTest.xctest"
-               BlueprintName = "WeatherTest"
-               ReferencedContainer = "container:Le Baluchon.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "54B7C72328D87A690005B3DE"
-               BuildableName = "TranslateTest.xctest"
-               BlueprintName = "TranslateTest"
-               ReferencedContainer = "container:Le Baluchon.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction

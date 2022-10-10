@@ -1,7 +1,7 @@
 
 import Foundation
 
-struct TranslateResponse: Decodable {
+struct TranslateItem: Decodable {
     let translations: [Translation]
 }
 struct Translation: Decodable {

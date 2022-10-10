@@ -15,7 +15,7 @@ final class FixerLoader {
         self.client = client
     }
     
-    func load(to: String, from: String, completion: @escaping (Result<FixerResponse, Error>) -> Void) {
+    func load(to: String, from: String, completion: @escaping (Result<FixerItem, Error>) -> Void) {
         let baseURL = URL(string: "https://api.apilayer.com/fixer")!
         let url = FixerEndpoint.get(to: to, from: from).url(baseURL: baseURL)
         client.get(url: URLRequest(url: url)) { [weak self] result in
@@ -31,7 +31,7 @@ final class FixerLoader {
                     return
                 }
             case let .failure(error):
-                print(error.localizedDescription)
+                completion(.failure(error))
                 return
             }
         }

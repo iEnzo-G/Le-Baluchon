@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct FixerResponse: Decodable {
+struct FixerItem: Decodable {
     let success: Bool
     let timestamp: Int
     let base, date: String

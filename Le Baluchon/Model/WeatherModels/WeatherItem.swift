@@ -8,7 +8,7 @@ import Foundation
 
     // MARK: - Struct for OpenWeather API
 
-struct WeatherResponse: Decodable {
+struct WeatherItem: Decodable {
     let list: [List]
 }
 

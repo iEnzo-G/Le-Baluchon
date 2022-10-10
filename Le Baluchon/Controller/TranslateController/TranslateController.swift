@@ -31,12 +31,15 @@ class TranslateController: UIViewController {
             return
         }
         loader.load(text: frenchTextView.text!) { [weak self] result in
-            switch result {
-            case let .success(text):
-                self?.englishTextView.text = text.translations[0].text
-            case let .failure(error):
-                print(error.localizedDescription)
-                self?.presentAlert(message: "Something happened wrong from the API. Please try later.")
+            DispatchQueue.main.async {
+                switch result {
+                case let .success(item):
+                    self?.englishTextView.text = item.translations[0].text
+                    return
+                case .failure(_):
+                    self?.presentAlert(message: "Something happened wrong from the API. Please try later.")
+                    return
+                }
             }
         }
     }

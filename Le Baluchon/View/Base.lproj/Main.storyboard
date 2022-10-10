@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="jqb-1h-W0u">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="jqb-1h-W0u">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -152,7 +153,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="n8M-e0-gFr">
-                                <rect key="frame" x="25" y="104" width="364" height="35"/>
+                                <rect key="frame" x="25" y="108" width="364" height="35"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="French" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BLY-pt-2q4">
                                         <rect key="frame" x="0.0" y="0.0" width="121.5" height="35"/>
@@ -176,17 +177,17 @@
                                 </constraints>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="3LI-xi-45a">
-                                <rect key="frame" x="25" y="239" width="364" height="418"/>
+                                <rect key="frame" x="25" y="243" width="364" height="410"/>
                                 <subviews>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Salut, Monde !" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="mpv-0M-OQC">
-                                        <rect key="frame" x="0.0" y="0.0" width="364" height="201.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="364" height="197.5"/>
                                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <color key="textColor" red="1" green="0.64260193170000002" blue="0.23825358990000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Hello, World !" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="b7j-Lj-Dv8">
-                                        <rect key="frame" x="0.0" y="216.5" width="364" height="201.5"/>
+                                        <rect key="frame" x="0.0" y="212.5" width="364" height="197.5"/>
                                         <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <color key="textColor" red="1" green="0.64260193170000002" blue="0.23825358990000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="22"/>
@@ -195,7 +196,7 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lPW-DG-5mH">
-                                <rect key="frame" x="80" y="677" width="254" height="50"/>
+                                <rect key="frame" x="80" y="673" width="254" height="50"/>
                                 <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="eMl-d8-e8H"/>
@@ -264,7 +265,7 @@
                                         <color key="textColor" systemColor="systemOrangeColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Wednesday - 23h45" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZjQ-hU-sKd">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Saturday 8 Oct, 6:50 AM" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZjQ-hU-sKd">
                                         <rect key="frame" x="0.0" y="75" width="364" height="23"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -372,13 +373,13 @@
     </scenes>
     <resources>
         <image name="1024px-United-states_flag_icon_round.svg" width="1024" height="1024"/>
-        <image name="arrow.down" catalog="system" width="120" height="128"/>
-        <image name="arrow.right" catalog="system" width="128" height="98"/>
+        <image name="arrow.down" catalog="system" width="118" height="128"/>
+        <image name="arrow.right" catalog="system" width="128" height="95"/>
         <image name="character.book.closed.fill" catalog="system" width="115" height="128"/>
-        <image name="dollarsign.circle.fill" catalog="system" width="128" height="121"/>
+        <image name="dollarsign.circle.fill" catalog="system" width="128" height="123"/>
         <image name="flag-round-250" width="250" height="250"/>
-        <image name="moon" catalog="system" width="128" height="121"/>
-        <image name="sun.max.fill" catalog="system" width="128" height="124"/>
+        <image name="moon" catalog="system" width="128" height="123"/>
+        <image name="sun.max.fill" catalog="system" width="128" height="125"/>
         <systemColor name="systemFillColor">
             <color red="0.47058823529411764" green="0.47058823529411764" blue="0.50196078431372548" alpha="0.20000000000000001" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

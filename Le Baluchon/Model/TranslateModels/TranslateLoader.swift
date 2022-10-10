@@ -9,7 +9,7 @@ final class TranslateLoader {
         self.client = client
     }
     
-    func load(text: String, completion: @escaping (Result<TranslateResponse, Error>) -> Void) {
+    func load(text: String, completion: @escaping (Result<TranslateItem, Error>) -> Void) {
         let baseURL = URL(string: "https://api-free.deepl.com/v2/translate")!
         let urlRequest = TranslateEndpoint.post(text).urlRequest(baseURL: baseURL)
         client.get(url: urlRequest) { [weak self] result in
@@ -25,7 +25,7 @@ final class TranslateLoader {
                     return
                 }
             case let .failure(error):
-                print(error.localizedDescription)
+                completion(.failure(error))
                 return
             }
         }

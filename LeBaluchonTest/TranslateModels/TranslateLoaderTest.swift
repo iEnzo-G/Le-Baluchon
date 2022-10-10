@@ -8,23 +8,13 @@ class TranslateLoaderTest: XCTestCase {
     // MARK: - Tests
     
     func test_GivenData_WhenSendRequest() {
-        let configuration = URLSessionConfiguration.ephemeral
-        configuration.protocolClasses = [URLProtocolStub.self]
-        let client = URLSessionHTTPClient(session: .init(configuration: configuration))
-        
-        var data: Data {
-            let bundle = Bundle(for: TranslateLoaderTest.self)
-            let url = bundle.url(forResource: "Translate", withExtension: "json")
-            let ExchangeData = try! Data(contentsOf: url!)
-            return ExchangeData
-        }
-        
-        URLProtocolStub.stub(data: data, response: HTTPURLResponse(url: URL(string: "www.a-url.com")!, statusCode: 200, httpVersion: .none, headerFields: .none), error: .none)
-         
+        let data = TranslateData().data
+        let client = ClientStub(result: .success((data, HTTPURLResponse(url: URL(string: "https://www.a-url.com")!, statusCode: 200, httpVersion: .none, headerFields: .none)!)))
+        let sut = TranslateLoader(client: client)
+       
         let exp = expectation(description: "Waiting for request...")
         
-        let loader = TranslateLoader(client: client)
-        loader.load(text: "Salut, j'aime le chocolat.") { result in
+        sut.load(text: "Salut, j'aime le chocolat.") { result in
             switch result {
             case let .success(post):
                 XCTAssertEqual(post.translations[0].text, "Hi, I like chocolate.")
@@ -37,18 +27,12 @@ class TranslateLoaderTest: XCTestCase {
     }
     
     func test_GivenError_WhenGetInvalidData() {
-        let configuration = URLSessionConfiguration.ephemeral
-        configuration.protocolClasses = [URLProtocolStub.self]
-        let client = URLSessionHTTPClient(session: .init(configuration: configuration))
-        let loader = TranslateLoader(client: client)
-        
-        let data = "erreur".data(using: .utf8)
-        
-        URLProtocolStub.stub(data: data, response: HTTPURLResponse(url: URL(string: "www.a-url.com")!, statusCode: 200, httpVersion: .none, headerFields: .none), error: .none)
-        
+        let error = NetworkError.undecodableData
+        let client = ClientStub(result: .failure(error))
+        let sut = TranslateLoader(client: client)
         let exp = expectation(description: "Waiting for request...")
         
-        loader.load(text: "Salut, j'aime le chocolat.") { result in
+        sut.load(text: "Salut, j'aime le chocolat.") { result in
             switch result {
             case .success:
                 XCTFail("Test is not valid.")
@@ -61,19 +45,13 @@ class TranslateLoaderTest: XCTestCase {
         wait(for: [exp], timeout: 1.0)
     }
     
-    func test_GivenError_WhenGetAnErrorFromAPI() {
-        let configuration = URLSessionConfiguration.ephemeral
-        configuration.protocolClasses = [URLProtocolStub.self]
-        let client = URLSessionHTTPClient(session: .init(configuration: configuration))
-        let loader = TranslateLoader(client: client)
-        
+    func test_GivenUndecodableData_WhenTryJSONDecoder_ThenGetNetworkError() {
         let data = Data()
-        
-        URLProtocolStub.stub(data: data, response: HTTPURLResponse(url: URL(string: "www.a-url.com")!, statusCode: 200, httpVersion: .none, headerFields: .none), error: NetworkError.undecodableData)
-        
+        let client = ClientStub(result: .success((data, HTTPURLResponse(url: URL(string: "https://www.a-url.com")!, statusCode: 200, httpVersion: .none, headerFields: .none)!)))
+        let sut = TranslateLoader(client: client)
         let exp = expectation(description: "Waiting for request...")
         
-        loader.load(text: "Salut, j'aime le chocolat.") { result in
+        sut.load(text: "Salut, j'aime le chocolat.") { result in
             switch result {
             case .success:
                 XCTFail("Test is not valid.")
@@ -88,6 +66,13 @@ class TranslateLoaderTest: XCTestCase {
     
     // MARK: - Helpers
     
-
+    class TranslateData {
+        var data: Data {
+            let bundle = Bundle(for: TranslateLoaderTest.self)
+            let url = bundle.url(forResource: "Translate", withExtension: "json")
+            let TranslateData = try! Data(contentsOf: url!)
+            return TranslateData
+        }
+    }
     
 }
