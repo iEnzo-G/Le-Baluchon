@@ -1,7 +1,7 @@
 
 import UIKit
 
-class TranslateController: UIViewController {
+final  class TranslateController: UIViewController {
     
     // MARK: - Outlets
     @IBOutlet var frenchTextView: UITextView!
@@ -26,19 +26,17 @@ class TranslateController: UIViewController {
     }
     
     @IBAction func tappedTranslateButton(_ sender: UIButton) {
-        guard frenchTextView.text != "" else {
+        guard let text = frenchTextView.text, text != "" else {
             presentAlert(message: "Please write something before translate")
             return
         }
-        loader.load(text: frenchTextView.text!) { [weak self] result in
+        loader.load(text: text) { [weak self] result in
             DispatchQueue.main.async {
                 switch result {
                 case let .success(item):
                     self?.englishTextView.text = item.translations[0].text
-                    return
-                case .failure(_):
+                case .failure:
                     self?.presentAlert(message: "Something happened wrong from the API. Please try later.")
-                    return
                 }
             }
         }

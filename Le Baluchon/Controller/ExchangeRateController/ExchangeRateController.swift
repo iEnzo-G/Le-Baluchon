@@ -41,39 +41,41 @@ final class ExchangeRateController: UIViewController {
     
     // MARK: - Actions
     
-    func updateRate(updateRate: Double) {
+    private func updateRate(updateRate: Double) {
         guard let rateFormatter = formatter.string(for: updateRate) else { return }
-        rateLabel.text! = "Rate: " + rateFormatter
+        rateLabel.text = "Rate: " + rateFormatter
     }
     
     private func loadExchangeRate() {
         loader.load(to: finalCurrency, from: startingCurrency) { [weak self] result in
+            guard let self else { return }
             DispatchQueue.main.async {
                 switch result {
                 case let .success(rate):
-                    guard let updatedRate = rate.rates[self!.finalCurrency] else { return }
-                    self?.rate = updatedRate
-                    self?.updateRate(updateRate: updatedRate)
-                case .failure(_):
-                    self?.presentAlert(message: "Something happened wrong from the API. Please try later.")
+                    guard let updatedRate = rate.rates[self.finalCurrency] else { return }
+                    self.rate = updatedRate
+                    self.updateRate(updateRate: updatedRate)
+                case .failure:
+                    self.presentAlert(message: "Something happened wrong from the API. Please try later.")
                 }
             }
         }
     }
     
-    func convertEURToUSD() {
-        guard amountEURTextField.text! != "00" else {
+    private func convertEURToUSD() {
+        guard let text = amountEURTextField.text, text != "00" else {
             presentAlert(message: "Please enter a correct amount to convert.")
             return
         }
-        guard let amountEUR = Double(amountEURTextField.text!) else { return }
+        guard let amountEUR = Double(text) else { return }
         guard let result = formatter.string(for: amountEUR * rate) else { return }
         amountUSDTextField.text = result
     }
     
     @IBAction func typedInEURTextField(_ sender: UITextField) {
         var dotCount = 0
-        for (_, dot) in amountEURTextField.text!.enumerated() {
+        guard let text = amountEURTextField.text else { return }
+        for dot in text {
             if dot == "." {
                 dotCount += 1
             }

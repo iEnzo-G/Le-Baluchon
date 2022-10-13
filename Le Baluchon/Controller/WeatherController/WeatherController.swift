@@ -137,7 +137,7 @@ final class WeatherController: UIViewController {
                 switch result {
                 case let .success(data):
                     self?.getInfo(cityIndex: cityIndex, response: data)
-                case .failure(_):
+                case .failure:
                     self?.presentAlert(message: "Something happened wrong from the API. Please try later.")
                 }
             }
