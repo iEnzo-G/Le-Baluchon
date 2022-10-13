@@ -5,9 +5,9 @@ You need to create an APIConfig file with inside your APIKey with this syntax :
 import Foundation  
 
 struct APIConfig {  
-    static let fixerKey = "<yourfixerapikey>"  
-    static let translateKey = "<yourtranslateapikey>"  
-    static let weatherKey = "<yourweatherapikey>"  
+    static let fixerKey = "your_fixer_apikey"  
+    static let translateKey = "your_translate_apikey"  
+    static let weatherKey = "your_weather_apikey"  
 }  
  
  
