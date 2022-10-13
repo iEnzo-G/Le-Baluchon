@@ -59,7 +59,7 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="lFC-Fl-wgf">
                                                 <rect key="frame" x="284" y="0.0" width="50" height="75"/>
                                                 <subviews>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="flag-round-250" translatesAutoresizingMaskIntoConstraints="NO" id="blS-sR-dQL">
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="flag-EUR" translatesAutoresizingMaskIntoConstraints="NO" id="blS-sR-dQL">
                                                         <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="50" id="6z4-pq-mrB"/>
@@ -98,7 +98,7 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="HGQ-O4-hnb">
                                                 <rect key="frame" x="284" y="0.0" width="50" height="75"/>
                                                 <subviews>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="1024px-United-states_flag_icon_round.svg" translatesAutoresizingMaskIntoConstraints="NO" id="gPs-bb-MBz">
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="flag-USA" translatesAutoresizingMaskIntoConstraints="NO" id="gPs-bb-MBz">
                                                         <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="50" id="uel-07-8hm"/>
@@ -152,22 +152,23 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="n8M-e0-gFr">
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="n8M-e0-gFr">
                                 <rect key="frame" x="25" y="108" width="364" height="35"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="French" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BLY-pt-2q4">
-                                        <rect key="frame" x="0.0" y="0.0" width="121.5" height="35"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="32"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Detect language" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BLY-pt-2q4">
+                                        <rect key="frame" x="0.0" y="0.0" width="235" height="35"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="26"/>
                                         <color key="textColor" red="1" green="0.64260193170000002" blue="0.23825358990000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrow.right" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="job-Ux-phc">
-                                        <rect key="frame" x="121.5" y="2.5" width="121" height="30"/>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="job-Ux-phc">
+                                        <rect key="frame" x="235" y="2.5" width="25" height="30"/>
                                         <color key="tintColor" red="1" green="0.64260193170000002" blue="0.23825358990000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <imageReference key="image" image="arrow.right" catalog="system" symbolScale="default"/>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="English" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Upa-2h-fKg">
-                                        <rect key="frame" x="242.5" y="0.0" width="121.5" height="35"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="32"/>
+                                        <rect key="frame" x="260" y="0.0" width="104" height="35"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="26"/>
                                         <color key="textColor" red="1" green="0.64260193170000002" blue="0.23825358990000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -179,7 +180,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="3LI-xi-45a">
                                 <rect key="frame" x="25" y="243" width="364" height="410"/>
                                 <subviews>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Salut, Monde !" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="mpv-0M-OQC">
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Bonjour, Monde !" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="mpv-0M-OQC">
                                         <rect key="frame" x="0.0" y="0.0" width="364" height="197.5"/>
                                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <color key="textColor" red="1" green="0.64260193170000002" blue="0.23825358990000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -229,8 +230,8 @@
                     <tabBarItem key="tabBarItem" title="Translate" image="character.book.closed.fill" catalog="system" id="Yoz-Ya-88x"/>
                     <connections>
                         <outlet property="englishTextView" destination="b7j-Lj-Dv8" id="vcL-XQ-ker"/>
-                        <outlet property="frenchTextView" destination="mpv-0M-OQC" id="lnP-qT-CoD"/>
                         <outlet property="translateButton" destination="lPW-DG-5mH" id="89n-W5-Ecv"/>
+                        <outlet property="translateTextView" destination="mpv-0M-OQC" id="lnP-qT-CoD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BTn-yw-wpH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -372,12 +373,12 @@
         </scene>
     </scenes>
     <resources>
-        <image name="1024px-United-states_flag_icon_round.svg" width="1024" height="1024"/>
         <image name="arrow.down" catalog="system" width="118" height="128"/>
         <image name="arrow.right" catalog="system" width="128" height="95"/>
         <image name="character.book.closed.fill" catalog="system" width="115" height="128"/>
         <image name="dollarsign.circle.fill" catalog="system" width="128" height="123"/>
-        <image name="flag-round-250" width="250" height="250"/>
+        <image name="flag-EUR" width="250" height="250"/>
+        <image name="flag-USA" width="1024" height="1024"/>
         <image name="moon" catalog="system" width="128" height="123"/>
         <image name="sun.max.fill" catalog="system" width="128" height="125"/>
         <systemColor name="systemFillColor">

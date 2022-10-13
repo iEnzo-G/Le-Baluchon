@@ -1,9 +1,3 @@
-//
-//  Weather.swift
-//  Le Baluchon
-//
-//  Created by Enzo Gammino on 01/09/2022.
-//
 import Foundation
 
     // MARK: - Struct for OpenWeather API

@@ -1,10 +1,3 @@
-//
-//  FixerEndpoint.swift
-//  Le Baluchon
-//
-//  Created by Enzo Gammino on 25/09/2022.
-//
-
 import Foundation
 
 enum FixerEndpoint{
@@ -21,7 +14,7 @@ enum FixerEndpoint{
             components.queryItems = [
                 URLQueryItem(name: "symbols", value: "\(to)"),
                 URLQueryItem(name: "base", value: "\(from)"),
-                URLQueryItem(name: "apikey", value: "Vxvy8dMQlAuKjbvNvkInyxUM6zpzz9JG")
+                URLQueryItem(name: "apikey", value: APIConfig.fixerKey)
             ]
             return components.url!
         }

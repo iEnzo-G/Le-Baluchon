@@ -1,10 +1,9 @@
-
 import UIKit
 
 final  class TranslateController: UIViewController {
     
     // MARK: - Outlets
-    @IBOutlet var frenchTextView: UITextView!
+    @IBOutlet var translateTextView: UITextView!
     @IBOutlet var englishTextView: UITextView!
     @IBOutlet var translateButton: UIButton!
     
@@ -22,11 +21,11 @@ final  class TranslateController: UIViewController {
     // MARK: - Actions
     
     @objc private func dismissKeyboardAndTranslate() {
-        frenchTextView.resignFirstResponder()
+        translateTextView.resignFirstResponder()
     }
     
     @IBAction func tappedTranslateButton(_ sender: UIButton) {
-        guard let text = frenchTextView.text, text != "" else {
+        guard let text = translateTextView.text, text != "" else {
             presentAlert(message: "Please write something before translate")
             return
         }

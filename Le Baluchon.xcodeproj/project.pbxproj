@@ -34,6 +34,7 @@
 		54B13D8128BE5097001E1E92 /* FixerLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54B13D8028BE5097001E1E92 /* FixerLoader.swift */; };
 		54B13D8328BE50C6001E1E92 /* FixerMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54B13D8228BE50C5001E1E92 /* FixerMapper.swift */; };
 		54B13D8728BE6C2D001E1E92 /* UITextField+Custom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54B13D8628BE6C2D001E1E92 /* UITextField+Custom.swift */; };
+		54B5933728F86AF200BA574C /* APIConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54B5933628F86AF200BA574C /* APIConfig.swift */; };
 		54B7C70D28D866EA0005B3DE /* URLSessionTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54B7C70C28D866EA0005B3DE /* URLSessionTest.swift */; };
 		54CEEA8C28CF2D8A00D5EBB1 /* TranslateMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54CEEA8B28CF2D8A00D5EBB1 /* TranslateMapper.swift */; };
 		54CEEA8E28CF2D9800D5EBB1 /* TranslateLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54CEEA8D28CF2D9800D5EBB1 /* TranslateLoader.swift */; };
@@ -81,6 +82,7 @@
 		54B13D8028BE5097001E1E92 /* FixerLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FixerLoader.swift; sourceTree = "<group>"; };
 		54B13D8228BE50C5001E1E92 /* FixerMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FixerMapper.swift; sourceTree = "<group>"; };
 		54B13D8628BE6C2D001E1E92 /* UITextField+Custom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Custom.swift"; sourceTree = "<group>"; };
+		54B5933628F86AF200BA574C /* APIConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIConfig.swift; sourceTree = "<group>"; };
 		54B7C70A28D866EA0005B3DE /* LeBaluchonTest.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LeBaluchonTest.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		54B7C70C28D866EA0005B3DE /* URLSessionTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionTest.swift; sourceTree = "<group>"; };
 		54B7C72D28D87AAD0005B3DE /* Translate.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Translate.json; sourceTree = "<group>"; };
@@ -223,6 +225,7 @@
 				547ECCF728AA6F5800B86407 /* Assets.xcassets */,
 				547ECCEE28AA6F5600B86407 /* AppDelegate.swift */,
 				547ECCF028AA6F5600B86407 /* SceneDelegate.swift */,
+				54B5933628F86AF200BA574C /* APIConfig.swift */,
 			);
 			path = "Supporting Files";
 			sourceTree = "<group>";
@@ -423,6 +426,7 @@
 				54CEEA9028CF2DAB00D5EBB1 /* TranslateItem.swift in Sources */,
 				547ECD0328AA71A100B86407 /* ExchangeRateController.swift in Sources */,
 				5498843A28C106A400EB2915 /* UIViewController+idWeather.swift in Sources */,
+				54B5933728F86AF200BA574C /* APIConfig.swift in Sources */,
 				547ECCF128AA6F5600B86407 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

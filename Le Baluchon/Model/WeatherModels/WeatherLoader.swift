@@ -1,15 +1,8 @@
-//
-//  WeatherLoader.swift
-//  Le Baluchon
-//
-//  Created by Enzo Gammino on 01/09/2022.
-//
-
 import Foundation
 
 final class WeatherLoader {
     
-    let client: HTTPClient
+    private let client: HTTPClient
     
     init(client: HTTPClient = URLSessionHTTPClient()) {
         self.client = client
@@ -25,14 +18,11 @@ final class WeatherLoader {
                 do {
                     let result = try WeatherMapper.map(data: data, response: response)
                     completion(.success(result))
-                    return
                 }  catch {
                     completion(.failure(error))
-                    return
                 }
             case let .failure(error):
                 completion(.failure(error))
-                return
             }
         }
     }

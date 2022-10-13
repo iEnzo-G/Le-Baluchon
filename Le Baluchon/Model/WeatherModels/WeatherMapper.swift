@@ -1,10 +1,3 @@
-//
-//  WeatherMapper.swift
-//  Le Baluchon
-//
-//  Created by Enzo Gammino on 01/09/2022.
-//
-
 import Foundation
 
 // The mapper will be use to decode the answer of API

@@ -1,11 +1,3 @@
-//
-//  UITextField+Custom.swift
-//  Le Baluchon
-//
-//  Created by Enzo Gammino on 30/08/2022.
-//
-
-
 import UIKit
 
 // Custom Field forbid user to do some interactions on the text field to prevent some errors.

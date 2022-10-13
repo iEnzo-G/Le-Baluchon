@@ -1,10 +1,3 @@
-//
-//  WeatherEndpoint.swift
-//  Le Baluchon
-//
-//  Created by Enzo Gammino on 25/09/2022.
-//
-
 import Foundation
 
 enum WeatherEndpoint {
@@ -21,7 +14,7 @@ enum WeatherEndpoint {
             components.queryItems = [
                 URLQueryItem(name: "id", value: "\(cities.map(String.init).joined(separator: ","))"),
                 URLQueryItem(name: "units", value: units),
-                URLQueryItem(name: "apikey", value: "5f51225038fc1ca49b43a55ceb15d459")
+                URLQueryItem(name: "apikey", value: APIConfig.weatherKey)
             ]
             
             return components.url!

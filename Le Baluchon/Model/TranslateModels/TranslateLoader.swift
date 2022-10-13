@@ -1,9 +1,8 @@
-
 import Foundation
 
 final class TranslateLoader {
     
-    let client: HTTPClient
+   private let client: HTTPClient
     
     init(client: HTTPClient = URLSessionHTTPClient()) {
         self.client = client
@@ -19,14 +18,11 @@ final class TranslateLoader {
                 do {
                     let result = try TranslateMapper.map(data: data, response: response)
                     completion(.success(result))
-                    return
                 }  catch {
                     completion(.failure(error))
-                    return
                 }
             case let .failure(error):
                 completion(.failure(error))
-                return
             }
         }
     }
